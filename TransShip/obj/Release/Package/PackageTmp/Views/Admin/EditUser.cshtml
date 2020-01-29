@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "EditUser";
+}
+
+
+
+<div class="content">
+    <div class="box" id="usersBox">
+        <h1>Edit Profile</h1>
+        <hr />
+
+        <div data-bind="visible: model.usersController.editMode()">
+
+            <form name="UserEdit" class="form" data-bind="with: model.usersController.user">
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="CompanyName">Company Name</label>
+                        <input id="CompanyName" type="email" class="form-control" data-bind="value: CompanyName  ">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="address1">Address 1 </label>
+                        <input id="address1" type="text" class="form-control" data-bind="value: address1">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="address2">Address 2</label>
+                        <input id="address2" type="text" class="form-control" data-bind="value: address2  ">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="zipcode">ZipCode </label>
+                        <input id="zipcode" type="text" class="form-control" data-bind="value: zipcode">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="country">Country </label>
+                        <input id="country" type="text" class="form-control" data-bind="value: country">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="state">State</label>
+                        <input id="state" type="text" class="form-control" data-bind="value: state  ">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="city">City </label>
+                        <input id="city" type="text" class="form-control" data-bind="value: city">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info" data-bind="click:  model.usersController.update, visible: model.usersController.editMode"><i class="fa fa-pencil"></i> Edit</button>
+                        <button type="button" class="btn btn-danger" data-bind="click:  model.usersController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+

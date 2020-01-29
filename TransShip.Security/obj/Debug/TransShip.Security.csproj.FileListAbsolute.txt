@@ -1,0 +1,11 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Security\bin\Debug\TransShip.Security.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Security\bin\Debug\TransShip.Security.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Security\obj\Debug\TransShip.Security.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Security\obj\Debug\TransShip.Security.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Security\obj\Debug\TransShip.Security.pdb
+C:\TransShip\transship\TransShip.Security\bin\Debug\TransShip.Security.dll
+C:\TransShip\transship\TransShip.Security\bin\Debug\TransShip.Security.pdb
+C:\TransShip\transship\TransShip.Security\obj\Debug\TransShip.Security.csprojResolveAssemblyReference.cache
+C:\TransShip\transship\TransShip.Security\obj\Debug\TransShip.Security.csproj.CoreCompileInputs.cache
+C:\TransShip\transship\TransShip.Security\obj\Debug\TransShip.Security.dll
+C:\TransShip\transship\TransShip.Security\obj\Debug\TransShip.Security.pdb

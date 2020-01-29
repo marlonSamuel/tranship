@@ -1,0 +1,320 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01240FE4-0EC9-484A-BD0C-93BCBD8D3C28}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TransShipModel</RootNamespace>
+    <AssemblyName>TransShipModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <EntityDeploy Include="TransshipDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TransshipDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="TransshipDataModel.edmx.diagram">
+      <DependentUpon>TransshipDataModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TransshipDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TransshipDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>TransshipDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="TransshipDataModel.edmx.sql" />
+    <Content Include="TransshipDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransshipDataModel.edmx</DependentUpon>
+      <LastGenOutput>TransshipDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\DICObject.cs" />
+    <Compile Include="Abstract\InterfaceSecurity.cs" />
+    <Compile Include="Concret\INSecurityImplementation.cs" />
+    <Compile Include="countries.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customers.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customers_view.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer_contacts.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\Contacts.cs" />
+    <Compile Include="DAO\Customers.cs" />
+    <Compile Include="DAO\Countries.cs" />
+    <Compile Include="DAO\Measure_Unit.cs" />
+    <Compile Include="DAO\MemberShip_Level.cs" />
+    <Compile Include="DAO\MemberShip_Payments.cs" />
+    <Compile Include="DAO\Rates.cs" />
+    <Compile Include="DAO\Recurring_Addresses.cs" />
+    <Compile Include="DAO\Service_types.cs" />
+    <Compile Include="DAO\ShipmentApprove.cs" />
+    <Compile Include="DAO\ShipmenTracking.cs" />
+    <Compile Include="DAO\ShipmentCost.cs" />
+    <Compile Include="DAO\ShipmentFiles.cs" />
+    <Compile Include="DAO\ShipmentNotes.cs" />
+    <Compile Include="DAO\Shipments.cs" />
+    <Compile Include="DAO\ShipmentServices.cs" />
+    <Compile Include="DAO\States.cs" />
+    <Compile Include="DAO\Type_files.cs" />
+    <Compile Include="DAO\Users.cs" />
+    <Compile Include="DAO\VendorContacts.cs" />
+    <Compile Include="DAO\Vendors.cs" />
+    <Compile Include="DTO\ChangePassword.cs" />
+    <Compile Include="DTO\Country.cs" />
+    <Compile Include="DTO\CountryInformation.cs" />
+    <Compile Include="DTO\CreateUserObject.cs" />
+    <Compile Include="DTO\CusotmerInformation.cs" />
+    <Compile Include="DTO\Files.cs" />
+    <Compile Include="DTO\History.cs" />
+    <Compile Include="DTO\MembershipLelvelObject.cs" />
+    <Compile Include="DTO\shipmentHistory.cs" />
+    <Compile Include="DTO\Tracking.cs" />
+    <Compile Include="DTO\Notes.cs" />
+    <Compile Include="DTO\Payments.cs" />
+    <Compile Include="DTO\PendingApprobalObject.cs" />
+    <Compile Include="DTO\RatesObject.cs" />
+    <Compile Include="DTO\RecoverPassword.cs" />
+    <Compile Include="DTO\RecurringAddresses.cs" />
+    <Compile Include="DTO\ShipCosts.cs" />
+    <Compile Include="DTO\ShipServiceCost.cs" />
+    <Compile Include="DTO\UserInformation.cs" />
+    <Compile Include="file_types.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="measure_units.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships_levels.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="membership_history.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="password_revovery.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rates.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="recurring_addresses.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Responses\DataMessage.cs" />
+    <Compile Include="Responses\Error.cs" />
+    <Compile Include="Responses\ErrorMessage.cs" />
+    <Compile Include="Responses\Message.cs" />
+    <Compile Include="service_types.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shipments.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shipment_attachment.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shipment_cost.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shipment_notes.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shipment_services.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shipment_tracking.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition1_Result.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition2_Result.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams1_Result.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams2_Result.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="state.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransshipDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransshipDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransshipDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransshipDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransshipDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="users.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vendors.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vendor_contacts.cs">
+      <DependentUpon>TransshipDataModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransShip.EMailHandler\TransShip.EMailHandler.csproj">
+      <Project>{a8935f52-3b62-4082-bff0-7e9c3fa57775}</Project>
+      <Name>TransShip.EMailHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransShip.LogBook\TransShip.LogBook.csproj">
+      <Project>{6e06b7b6-78fc-4547-b178-2c99ffb0cddb}</Project>
+      <Name>TransShip.LogBook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TransShip.Security\TransShip.Security.csproj">
+      <Project>{fc7cef9b-402c-41a5-9ca5-3e49b138216f}</Project>
+      <Name>TransShip.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62855</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62855/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

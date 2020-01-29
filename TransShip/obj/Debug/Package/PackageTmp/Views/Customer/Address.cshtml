@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    ViewBag.Title = "Address";
+}
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Address List</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.addressController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success btn-sm" data-bind="click: model.addressController.showNewAddress"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="addressesGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name Consignee</th>
+                        <th>Receiving Company</th>
+                        <th>Phone Number</th>
+                        <th>Address 1</th>
+                        <th>Address 2</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.addressController.addresses, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: consignee_name"></td>
+                        <td data-bind="text: target_company"></td>
+                        <td data-bind="text: phone_number"></td>
+                        <td data-bind="text: address1"></td>
+                        <td data-bind="text: address2"></td>
+                        <td data-bind="text: Country_Name"></td>
+                        <td data-bind="text: state"></td>
+                        <td data-bind="text: city"></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.addressController.editAddress"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.addressController.removeAddress"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.addressController.editMode() || model.addressController.insertMode())">
+
+            <form name="AddressEdit" id="AddressEdit" >
+                <div class="row" data-bind="with: model.addressController.address">
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="name_consignee">Name Consignee<span class="text-danger"> *</span></label>
+                        <input id="name_consignee" name="name_consignee" type="text" class="form-control" data-bind="value: consignee_name"
+                               data-error=".errorConsigt" 
+                               minlength="2" maxlength="100" required>
+                        <span class="errorConsigt text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="target_company">Receiving Company</label>
+                        <input id="target_company"  type="text" class="form-control" data-bind="value: target_company" 
+                               data-error=".errorReceiving" 
+                               minlength="2" maxlength="50">
+                        <label class="errorReceiving text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="phone_number">Phone Number<span class="text-danger"> *</span></label>
+                        <input id="phone_number" name="Phone" type="number" class="form-control" data-bind="value: phone_number" 
+                               data-error=".errorPhone" 
+                               minlength="2" maxlength="50" required>
+                        <label class="errorPhone text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="address1">Address One<span class="text-danger"> *</span></label>
+                        <input type="text" data-bind="value: address1" class="form-control validate" id="addr1" name="addr1"
+                               placeholder="Address One" maxlength="250" data-error=".errorAddr1" required>
+                        <label class="errorAddr1 text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="address2">Address Two</label>
+                        <input id="address2" type="text" class="form-control" data-bind="value: address2"
+                               data-error=".errorAddress2" 
+                               maxlength="250">
+                        <label class="errorAddress2 text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label>Postal Code</label>
+                        <label for="zipcode" data-bind="text: (model.addressController.mandatoryZipcode() === true ? ' *' : ''), css: (model.addressController.mandatoryZipcode() === true ? 'text-danger' : 'text-default')"></label>
+                        <input id="zipcode" type="number" min="0" class="form-control" data-bind="value: zipcode, attr: { required: model.addressController.mandatoryZipcode}"
+                               data-error=".errorZipcode" 
+                               maxlength="5" name="zipcode" placeholder="Postal Code">
+                        <label class="errorZipcode text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="country">Country<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="country" placeholder="Country"
+                                data-bind="options: model.addressController.countries, optionsText: 'CountryName', optionsValue: 'CountryID', value: countryId, event : {change : model.addressController.countryChange}" 
+                                data-error=".errorCountry" 
+                                required></select>
+                        <label class="errorCountry text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="state">State<span class="text-danger"> *</span></label>
+                        <input type="text" name="state" class="form-control" id="state" placeholder="State" data-bind="value: state, visible: model.addressController.validateState() === false"
+                               data-error=".errrorState" 
+                               maxlength="50" required>
+                        <label class="errrorState text-danger help-inline"></label>
+                        <select class="form-control" id="stateOf" placeholder="State" data-bind="options: model.addressController.states, optionsText: 'name', optionsValue: 'name', value: stateText, visible: model.addressController.validateState" required></select>
+                    </div>
+                    <div class="form-group col-sm-3 col-md-3">
+                        <label for="city">City </label>
+                        <input id="city" type="text" class="form-control" data-bind="value: city">
+                    </div>
+                   
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.addressController.update, visible: model.addressController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.addressController.save, visible: model.addressController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.addressController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+

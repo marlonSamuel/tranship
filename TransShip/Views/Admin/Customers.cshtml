@@ -1,0 +1,208 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "PaymentShip";
+}
+
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Customers</h1>
+        <hr />
+
+
+        <div class="table-responsive" data-bind="visible: model.paymentsController.gridMode()">
+            <div class="pull-right">
+                <a class="btn btn-success" href="@Url.Action("AproveRegister","Admin")">Pending Customer</a>
+            </div> 
+            <table id="paymentsGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th>Level Membership</th>
+                        <th>Initial Date</th>
+                        <th>Final Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.paymentsController.payments, 
+                                    options: { 
+                                            deferRender: true,
+                                            paging: true,
+                                            searching: true,
+                                            pageLength: 10,
+                                            responsive: true,
+                                            bDestroy: true,
+                                            order: [[1, 'asc']],
+                                            dom: dataTableDom,
+                                        }
+                                  }">
+                    <tr>
+                        <th><img style="width:50px; height:50px;" data-bind="attr:{src: (logo !== null ? '../Logos/'+customerid+'/'+logo : emptyLogo)}" /></th>
+                        <td data-bind="text: company_name"></td>
+                        <td data-bind="text: full_name"></td>
+                        <td data-bind="text: description"></td>
+                        <td data-bind="text: (moment(initial_date).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(initial_date).format('MM/DD/YYYY'))"></td>
+                        <td data-bind="text: (moment(final_date).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(final_date).format('MM/DD/YYYY'))"></td>
+                        <td>
+                            <a href="#" class="btn btn-info btn-xs" data-bind="click: model.paymentsController.editPayment"><i class="fa fa-eye-slash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: model.paymentsController.editMode">
+
+            <form name="PaymentEdit" class="form" data-bind="with: model.paymentsController.payment">
+                <div class="row">
+                    <div class="form-group col-sm-8">
+                        <label for="ComapnyName">Company Name</label>
+                        <input id="ComapnyName" type="text" class="form-control" data-bind="value: company_name" readonly>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="logo">Logo</label><br />
+                        <img id="previewLogo" style="width:200px; height:100px;" data-bind="attr:{src: (logo() !== null ? ( logo() !== '' ? '../Logos/'+customerid()+'/'+logo() : emptyLogo ) : emptyLogo)}" />
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="address1">Address 1</label>
+                        <input id="address1" type="text" class="form-control" data-bind="value: address1" readonly>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="address2">Address 2</label>
+                        <input id="address2" type="text" class="form-control" data-bind="value: address2" readonly>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label for="zipcode">Postal Code</label>
+                        <input id="zipcode" type="text" class="form-control" data-bind="value: zipcode" readonly>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="country">Country</label>
+                        <input id="country" type="text" class="form-control" data-bind="value: CountryName" readonly>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="state">State</label>
+                        <input id="state" type="text" class="form-control" data-bind="value: state" readonly>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="city">City</label>
+                        <input id="city" type="text" class="form-control" data-bind="value: city" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.paymentsController.cancel"><i class="fa fa-undo"></i> Return</button>
+                    </p>
+                </div>
+            </form>
+
+            <hr />
+            
+            <div class="content">
+
+                <div class="box" id="countriesBox">
+                    <h3>Payments</h3>
+                    <hr />
+                    <!--MEMBER HISTORY LEVELS -->
+                    <div class="table-responsive" data-bind="visible: model.historyController.gridMode()">
+                        <div class="pull-right">
+                            <a href="#" class="btn btn-success mybtn" data-bind="click: model.historyController.showNewHistory"><i class="fa fa-plus-circle"></i> New</a>
+                        </div>
+                        <table id="HistoriesGrid" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Payment day</th>
+                                    <th>Begin</th>
+                                    <th>Finish</th>
+                                    <th>Membership Level</th>
+                                    @*<th>Actions</th>*@
+                                </tr>
+                            </thead>
+                            <tbody data-bind="dataTablesForEach : {
+                                    data: model.historyController.histories, 
+                                    options: { 
+                                            deferRender: true,
+                                            paging: true,
+                                            searching: true,
+                                            pageLength: 10,
+                                            responsive: true,
+                                            bDestroy: true,
+                                            order: [[1, 'desc']],
+                                            dom: dataTableDom,
+                                        }
+                                  }">
+                                <tr>
+                                    <td data-bind="text: moment(payment_date).format('MM/DD/YYYY')"></td>
+                                    <td data-bind="text: moment(initial_date).format('MM/DD/YYYY')"></td>
+                                    <td data-bind="text: moment(final_date).format('MM/DD/YYYY')"></td>
+                                    <td data-bind="text: description"></td>
+                                    @*<td>
+                                        &nbsp;
+                                         
+                                        <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.historyController.editHistory"><i class="fa fa-pencil"></i></a>
+                                        <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.historyController.removeHistory"><i class="fa fa-trash-o"></i></a>
+                                        
+                                    </td>*@
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div data-bind="visible: (model.historyController.editMode() || model.historyController.insertMode())">
+
+                        <form name="HistoryEdit" id="HistoryEdit" class="form" data-bind="with: model.historyController.history">
+                            <div class="row">
+                                <div class="form-group col-sm-3">
+                                    <label for="payment_date">Payment Day<span class="text-danger"> *</span></label>
+                                    <input id="payment_date" name="paymenDay" type="date" class="fdatepicker form-control" data-bind="datePicker: payment_date"
+                                           data-error=".errorDate" required>
+                                            <span class="errorDate text-danger help-inline"></span>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="initial_date">Begin<span class="text-danger"> *</span></label>
+                                    <input id="initial_date" name="initial_date" type="date" class="fdatepicker form-control" data-bind="datePicker: initial_date"
+                                           data-error=".errorBegin" required>
+                                   <span class="errorBegin text-danger help-inline"></span>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="final_date">Finish<span class="text-danger"> *</span></label>
+                                    <input id="final_date" type="date" class="fdatepicker form-control" data-bind="datePicker: final_date"
+                                           data-error=".errorFinal" required>
+                                     <span class="errorFinal text-danger help-inline"></span>
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label>Membership Levels<span class="text-danger"> *</span></label>
+                                    <select class="form-control" data-bind="options: model.historyController.members, optionsText: 'description', optionsValue: 'membershipId', value: membershipId"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="text-center">
+                                    <button type="button" class="btn btn-info mybtn" data-bind="click:  model.historyController.update, visible: model.historyController.editMode"><i class="fa fa-save"></i> Save</button>
+                                    <button type="button" class="btn btn-info mybtn" data-bind="click:  model.historyController.save, visible: model.historyController.insertMode "><i class="fa fa-save"></i> Save</button>
+                                    <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.historyController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                                </p>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<script>
+        $(document).ready(function () {
+
+         
+          model.paymentsController.initialize();
+            
+            
+        });
+</script>
+
+

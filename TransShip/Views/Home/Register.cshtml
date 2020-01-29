@@ -1,0 +1,168 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    if (string.IsNullOrEmpty((string)ViewData["result"]) == false) {
+        <div class="alert alert-success">
+            <strong>Account confirmed!</strong> Transship will contact you to approve your account.
+        </div>
+    }
+}
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+
+
+<div class="container" id="registerBox">
+    <div class="box">
+        <h4>Register</h4>
+        <hr />
+        <div class="alert alert-success" data-bind="visible: model.register.registerResult() === 'success'">
+            <strong>Success!</strong> A new customer has been created.
+        </div>
+        <div class="alert alert-danger" data-bind="visible: model.register.registerResult() === 'error'">
+            <strong>Danger!</strong> An error occurred, please check submitted information
+        </div>
+        <form name="registerForm" id="registerForm">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group col-sm-3">
+                        <label for="username">User name (e-mail)<span class="text-danger"> *</span></label>
+                        <input type="email" class="form-control" id="username" name="username" placeholder="E-mail (User Name)" data-bind="value: model.register.username"
+                               data-error=".errorEmail"
+                               minlength="5" maxlength="50" required>
+                        <span class="errorEmail text-danger help-inline"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group col-sm-3">
+                        <label for="keyinformation">Password<span class="text-danger"> *</span></label>
+                        <input type="password" data-bind="value: model.register.keyinformation, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" id="keyinformation" name="keyinformation" placeholder="Password"
+                               data-error=".errorPassword"
+                               minlength="8" maxlength="20" required>
+                        <span class="errorPassword text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="confirmkey">Confirm Password<span class="text-danger"> *</span></label>
+                        <input type="password" data-bind="value: model.register.confirmkey, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" id="confirmkey" name="confirmkey" placeholder="Password"
+                               data-error=".errorConfirm"
+                               minlength="8" maxlength="20" required>
+                        <span class="errorConfirm text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <br />
+                        <i class="fa fa-2x" data-bind="css: (model.register.keyinformation() !== '' && model.register.keyinformation() === model.register.confirmkey() ? 'fa-check text-success' : 'fa-ban text-danger')"></i>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group col-sm-6">
+                        <label for="companyname">Company Name<span class="text-danger"> *</span></label>
+                        <input type="text" data-bind="value: model.register.companyname" class="form-control" id="companyname" name="companyname" placeholder="Company Name"
+                               data-error=".errorCompanyName"
+                               minlength="5" maxlength="100" required>
+                        <span class="errorCompanyName text-danger help-inline"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group col-sm-5">
+                        <label for="addr1">Address One<span class="text-danger"> *</span></label>
+                        <input type="text" data-bind="value: model.register.addr1" class="form-control" id="addr1" name="addr1" placeholder="Address One"
+                               data-error=".errorAddressOne"
+                               minlength="3" maxlength="250" required>
+                        <span class="errorAddressOne text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="addr2">Address Two</label>
+                        <input type="text" data-bind="value: model.register.addr2" class="form-control" id="addr2" name="addr2" placeholder="Address Two"
+                               data-error=".errorAddressTwo"
+                               minlength="3" maxlength="250">
+                        <label class="errorAddressTwo text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label for="zipcode">Postal code<span class="text-danger" data-bind="visible: model.register.mandatoryZipcode"> *</span></label>
+                        <input type="number" data-bind="value: model.register.zipcode, attr: {required: model.register.mandatoryZipcode}" class="form-control" id="zipcode" name="zipcode" placeholder="Postal Code"
+                               data-error=".errorZipcode"
+                               maxlength="5">
+                        <label class="errorZipcode text-danger help-inline"></label>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    @*<div class="form-group col-sm-4">
+                        <label for="country">Country<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="country" data-bind="options: model.register.countries,optionsText: 'CountryName', optionsValue : 'CountryID', event : {change : model.register.countryChange}"
+                                data-error=".errorCountry" required></select>
+                        <label class="errorCountry text-danger help-inline"></label>
+                    </div>*@
+
+                    <div class="form-group col-sm-4">
+                        <label for="country">Country<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="country" name="country" placeholder="Country"
+                                data-bind="options: model.register.countries, optionsText: 'CountryName', optionsValue: 'CountryID', value: model.register.idCountry, event : {change : model.register.countryChange}"
+                                data-error="errorCountry" required></select>
+                        <span class="errorCountry text-danger help-inline"></span>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <label for="state">State<span class="text-danger"> *</span></label>
+                        <!-- ko ifnot: model.register.validateState -->
+                        <input type="text" class="form-control" id="state" name="state" placeholder="State" data-bind="value: model.register.usstate"
+                               data-error="errorState" minlength="3" maxlength="50" required>
+                        <span class="errorState text-danger help-inline"></span>
+                        <!-- /ko -->
+                        <select class="form-control" id="stateOf" placeholder="State" data-bind="options: model.register.states, optionsText: 'name', optionsValue: 'name', value: model.register.stateText, visible: model.register.validateState" required></select>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" data-bind="value: model.register.city"
+                               data-error=".errorCity"
+                               maxlength="50">
+                        <label class="errorCity text-danger help-inline"></label>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-12"><h5>Contact Information</h5></div>
+                    <div class="form-group col-sm-6">
+                        <label for="fullname">Full Name<span class="text-danger"> *</span></label>
+                        <input type="text" data-bind="value: model.register.fullname" class="form-control" id="fullname" name="fullname" placeholder="Full Name"
+                               data-error=".errorFullName"
+                               maxlength="50" required>
+                        <label class="errorFullName text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="title">Title<span class="text-danger"> *</span></label>
+                        <input type="text" data-bind="value: model.register.title" class="form-control" id="title" name="title" placeholder="Title"
+                               data-error=".errorTitle"
+                               maxlength="25" required>
+                        <label class="errorTitle text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="phonenumer">Phone Number<span class="text-danger"> *</span></label>
+                        <input type="number" data-bind="value: model.register.phonenumber" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number"
+                               data-error=".errorPhoneNumber"
+                               minlength="3" maxlength="20" required>
+                        <label class="errorPhoneNumber text-danger help-inline"></label>
+                    </div>
+
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group col-sm-6">
+                        <label for="membership">Membership Level<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="membership" data-bind="options: model.register.membershipLevels,optionsText: 'Description', optionsValue : 'Id', value : model.register.membership"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="text-center">
+                    <button type="button" class="btn btn-primary mybtn" data-bind="click: model.register.sendRegister, disabled: model.register.valid()"><i class="fa fa-sign-in"></i> Register</button>
+                    <!-- button type="button" class="btn btn-danger" ><i class="fa fa-power-off"></i> Cancel</button -->
+                    @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn btn-danger mybtn" })
+                </p>
+            </div>
+        </form>
+    </div>
+
+</div>
+

@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Users";
+}
+
+
+
+<div class="content">
+    <div class="spinner" data-bind="visible: model.usersController.loadingVisible">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+        Loading ...
+    </div>
+    <div class="box hidden" id="usersBox" data-bind="visible: (model.usersController.loadingVisible() === false ? true : false)">
+        <h1>Users</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.usersController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn" data-bind="click: model.usersController.new"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="usersGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>User Name (e-mail)</th>
+                        <th>Full Name</th>
+                        <!-- th>User Type</th -->
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.usersController.users,
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: email"></td>
+                        <td data-bind="text: full_name"></td>
+                        <td><span class="label" data-bind="text: (role === 'A' ? 'Administrator' : 'Operator'), css: (role === 'A' ? 'label-info' : 'label-default')"></span></td>
+                        <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.usersController.edit"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.usersController.remove"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div data-bind="visible: (model.usersController.editMode() || model.usersController.insertMode())">
+
+            <form name="UserEdit" id="UserEdit" class="form" data-bind="with: model.usersController.user">
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="userName">User Name (e-mail)<span class="text-danger"> *</span></label>
+                        <input id="userName" name="username" type="email" data-bind="value: email" class="form-control" min="2"
+                               data-error=".errorEmail"
+                               minlength="5" maxlength="50" required>
+                        <span class="errorEmail text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="fullName">Full Name<span class="text-danger"> *</span></label>
+                        <input id="fullName" name="full_name" type="text" class="form-control validate" data-bind="value: full_name"
+                               data-error=".errorFullName"
+                               minlength="2" maxlength="20" required>
+                        <span class="errorFullName text-danger help-inline"></span>
+                    </div>
+
+                    <div class="col-sm-12" style="margin-left:-15px;">
+                        <div class="form-group col-sm-3">
+                            <label for="keyinformation">Password<span class="text-danger"> *</span></label>
+                            <input type="password" data-bind="value: password, valueUpdate:['afterkeydown','propertychange','input']" class="form-control validate" id="keyinformation" name="keyinformation" placeholder="Password"
+                                   data-error=".errorPassword"
+                                   minlength="8" maxlength="20" required>
+                            <span class="errorPassword text-danger help-inline"></span>
+                        </div>
+                        <div class="form-group col-sm-3" style="margin-left:7px;">
+                            <label for="confirmkey">Confirm Password<span class="text-danger"> *</span></label>
+                            <input type="password" data-bind="value: confirmPassword, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" id="confirmkey" name="confirmkey" placeholder="Password"
+                                   data-error=".errorConfirm"
+                                   minlength="8" maxlength="20" required>
+                            <span class="errorConfirm text-danger help-inline"></span>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <br />
+                            <i class="fa fa-2x" data-bind="css: (password() !== '' && password() === confirmPassword() ? 'fa-check text-success' : 'fa-ban text-danger')"></i>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="role">Role<span class="text-danger"> *</span></label>
+                        <select name="role" id="role" class="form-control" data-bind="value: role">
+                            <option value="A">Administrator</option>
+                            <option value="O">Operator</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="status">Status<span class="text-danger"> *</span></label>
+                        <select name="status" id="status" class="form-control" data-bind="value: status">
+                            <option value="A">Active</option>
+                            <option value="I">Inactive</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.usersController.update, visible: model.usersController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.usersController.save, visible: model.usersController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.usersController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        model.usersController.initialize();
+
+    });
+</script>

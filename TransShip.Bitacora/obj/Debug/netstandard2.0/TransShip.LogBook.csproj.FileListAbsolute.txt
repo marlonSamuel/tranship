@@ -1,0 +1,9 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\bin\Debug\netstandard2.0\TransShip.LogBook.deps.json
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\bin\Debug\netstandard2.0\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\bin\Debug\netstandard2.0\TransShip.LogBook.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.LogBook.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.LogBook.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.LogBook.AssemblyInfoInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.LogBook.AssemblyInfo.cs
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.LogBook.pdb

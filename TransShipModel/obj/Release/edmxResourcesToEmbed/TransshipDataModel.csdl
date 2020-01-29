@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="transshipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="transshipEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="countries" EntityType="transshipModel.countries" />
+    <EntitySet Name="customer_contacts" EntityType="transshipModel.customer_contacts" />
+    <EntitySet Name="customers" EntityType="transshipModel.customers" />
+    <EntitySet Name="file_types" EntityType="transshipModel.file_types" />
+    <EntitySet Name="measure_units" EntityType="transshipModel.measure_units" />
+    <EntitySet Name="membership_history" EntityType="transshipModel.membership_history" />
+    <EntitySet Name="Memberships_levels" EntityType="transshipModel.Memberships_levels" />
+    <EntitySet Name="password_revovery" EntityType="transshipModel.password_revovery" />
+    <EntitySet Name="rates" EntityType="transshipModel.rates" />
+    <EntitySet Name="recurring_addresses" EntityType="transshipModel.recurring_addresses" />
+    <EntitySet Name="service_types" EntityType="transshipModel.service_types" />
+    <EntitySet Name="shipment_attachment" EntityType="transshipModel.shipment_attachment" />
+    <EntitySet Name="shipment_cost" EntityType="transshipModel.shipment_cost" />
+    <EntitySet Name="shipment_notes" EntityType="transshipModel.shipment_notes" />
+    <EntitySet Name="shipment_services" EntityType="transshipModel.shipment_services" />
+    <EntitySet Name="shipment_tracking" EntityType="transshipModel.shipment_tracking" />
+    <EntitySet Name="shipments" EntityType="transshipModel.shipments" />
+    <EntitySet Name="state" EntityType="transshipModel.state" />
+    <EntitySet Name="users" EntityType="transshipModel.users" />
+    <EntitySet Name="vendor_contacts" EntityType="transshipModel.vendor_contacts" />
+    <EntitySet Name="vendors" EntityType="transshipModel.vendors" />
+    <AssociationSet Name="Refcountries22" Association="transshipModel.Refcountries22">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries23" Association="transshipModel.Refcountries23">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="state" EntitySet="state" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries24" Association="transshipModel.Refcountries24">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="recurring_addresses" EntitySet="recurring_addresses" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries27" Association="transshipModel.Refcountries27">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="rates" EntitySet="rates" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries30" Association="transshipModel.Refcountries30">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="shipments" EntitySet="shipments" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers2" Association="transshipModel.Refcustomers2">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="customer_contacts" EntitySet="customer_contacts" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers1" Association="transshipModel.Refcustomers1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers28" Association="transshipModel.Refcustomers28">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="shipments" EntitySet="shipments" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers5" Association="transshipModel.Refcustomers5">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="membership_history" EntitySet="membership_history" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers6" Association="transshipModel.Refcustomers6">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="recurring_addresses" EntitySet="recurring_addresses" />
+    </AssociationSet>
+    <AssociationSet Name="RefMemberships_levels3" Association="transshipModel.RefMemberships_levels3">
+      <End Role="Memberships_levels" EntitySet="Memberships_levels" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="Reffile_types14" Association="transshipModel.Reffile_types14">
+      <End Role="file_types" EntitySet="file_types" />
+      <End Role="shipment_attachment" EntitySet="shipment_attachment" />
+    </AssociationSet>
+    <AssociationSet Name="Refmeasure_units21" Association="transshipModel.Refmeasure_units21">
+      <End Role="measure_units" EntitySet="measure_units" />
+      <End Role="rates" EntitySet="rates" />
+    </AssociationSet>
+    <AssociationSet Name="Refmeasure_units31" Association="transshipModel.Refmeasure_units31">
+      <End Role="measure_units" EntitySet="measure_units" />
+      <End Role="shipment_cost" EntitySet="shipment_cost" />
+    </AssociationSet>
+    <AssociationSet Name="Refmeasure_units9" Association="transshipModel.Refmeasure_units9">
+      <End Role="measure_units" EntitySet="measure_units" />
+      <End Role="shipment_services" EntitySet="shipment_services" />
+    </AssociationSet>
+    <AssociationSet Name="Refservice_types10" Association="transshipModel.Refservice_types10">
+      <End Role="service_types" EntitySet="service_types" />
+      <End Role="measure_units" EntitySet="measure_units" />
+    </AssociationSet>
+    <AssociationSet Name="RefMemberships_levels4" Association="transshipModel.RefMemberships_levels4">
+      <End Role="Memberships_levels" EntitySet="Memberships_levels" />
+      <End Role="membership_history" EntitySet="membership_history" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers33" Association="transshipModel.Refusers33">
+      <End Role="users" EntitySet="users" />
+      <End Role="password_revovery" EntitySet="password_revovery" />
+    </AssociationSet>
+    <AssociationSet Name="Refvendors25" Association="transshipModel.Refvendors25">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="rates" EntitySet="rates" />
+    </AssociationSet>
+    <AssociationSet Name="Refservice_types29" Association="transshipModel.Refservice_types29">
+      <End Role="service_types" EntitySet="service_types" />
+      <End Role="shipments" EntitySet="shipments" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments13" Association="transshipModel.Refshipments13">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_attachment" EntitySet="shipment_attachment" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers12" Association="transshipModel.Refusers12">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipment_attachment" EntitySet="shipment_attachment" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments32" Association="transshipModel.Refshipments32">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_cost" EntitySet="shipment_cost" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments18" Association="transshipModel.Refshipments18">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_notes" EntitySet="shipment_notes" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers17" Association="transshipModel.Refusers17">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipment_notes" EntitySet="shipment_notes" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments7" Association="transshipModel.Refshipments7">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_services" EntitySet="shipment_services" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments15" Association="transshipModel.Refshipments15">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_tracking" EntitySet="shipment_tracking" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers16" Association="transshipModel.Refusers16">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipment_tracking" EntitySet="shipment_tracking" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers11" Association="transshipModel.Refusers11">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipments" EntitySet="shipments" />
+    </AssociationSet>
+    <AssociationSet Name="Refvendors26" Association="transshipModel.Refvendors26">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="vendor_contacts" EntitySet="vendor_contacts" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="transshipModel.sysdiagrams" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(transshipModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(transshipModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_alterdiagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition1" ReturnType="Collection(transshipModel.sp_helpdiagramdefinition1_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams1" ReturnType="Collection(transshipModel.sp_helpdiagrams1_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams1" />
+    <FunctionImport Name="sp_alterdiagram2">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram2">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram2">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition2" ReturnType="Collection(transshipModel.sp_helpdiagramdefinition2_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams2" ReturnType="Collection(transshipModel.sp_helpdiagrams2_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram2">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams2" />
+    <AssociationSet Name="FK_shipments_vendors" Association="transshipModel.FK_shipments_vendors">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="shipments" EntitySet="shipments" />
+    </AssociationSet>
+    <EntitySet Name="Customers_view" EntityType="transshipModel.Customers_view" />
+  </EntityContainer>
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISO2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="LongCountryName" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ISO3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="NumCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="UNMemberState" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CallingCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CCTLD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.Refcountries22" FromRole="countries" ToRole="customers" />
+    <NavigationProperty Name="state" Relationship="transshipModel.Refcountries23" FromRole="countries" ToRole="state" />
+    <NavigationProperty Name="recurring_addresses" Relationship="transshipModel.Refcountries24" FromRole="countries" ToRole="recurring_addresses" />
+    <NavigationProperty Name="rates" Relationship="transshipModel.Refcountries27" FromRole="countries" ToRole="rates" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refcountries30" FromRole="countries" ToRole="shipments" />
+    <Property Name="currency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="currencySymbol" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="validate_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="mandatory_zipcode" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="customer_contacts">
+    <Key>
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="contactId" />
+    </Key>
+    <Property Name="customerId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="contactId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.Refcustomers2" FromRole="customer_contacts" ToRole="customers" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estimated_membership" Type="Decimal" Precision="24" Scale="0" />
+    <Property Name="countryId" Type="Int64" Nullable="false" />
+    <Property Name="company_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" Nullable="true" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="card_number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="expiration_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="countries" Relationship="transshipModel.Refcountries22" FromRole="customers" ToRole="countries" />
+    <NavigationProperty Name="customer_contacts" Relationship="transshipModel.Refcustomers2" FromRole="customers" ToRole="customer_contacts" />
+    <NavigationProperty Name="users" Relationship="transshipModel.Refcustomers1" FromRole="customers" ToRole="users" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refcustomers28" FromRole="customers" ToRole="shipments" />
+    <NavigationProperty Name="membership_history" Relationship="transshipModel.Refcustomers5" FromRole="customers" ToRole="membership_history" />
+    <NavigationProperty Name="recurring_addresses" Relationship="transshipModel.Refcustomers6" FromRole="customers" ToRole="recurring_addresses" />
+    <NavigationProperty Name="Memberships_levels" Relationship="transshipModel.RefMemberships_levels3" FromRole="customers" ToRole="Memberships_levels" />
+    <Property Name="register_date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="file_types">
+    <Key>
+      <PropertyRef Name="file_typeId" />
+    </Key>
+    <Property Name="file_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="shipment_attachment" Relationship="transshipModel.Reffile_types14" FromRole="file_types" ToRole="shipment_attachment" />
+    <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="measure_units">
+    <Key>
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+    </Key>
+    <Property Name="service_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="measure_unitId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="rates" Relationship="transshipModel.Refmeasure_units21" FromRole="measure_units" ToRole="rates" />
+    <NavigationProperty Name="shipment_cost" Relationship="transshipModel.Refmeasure_units31" FromRole="measure_units" ToRole="shipment_cost" />
+    <NavigationProperty Name="shipment_services" Relationship="transshipModel.Refmeasure_units9" FromRole="measure_units" ToRole="shipment_services" />
+    <NavigationProperty Name="service_types" Relationship="transshipModel.Refservice_types10" FromRole="measure_units" ToRole="service_types" />
+  </EntityType>
+  <EntityType Name="membership_history">
+    <Key>
+      <PropertyRef Name="membership_HistoryId" />
+    </Key>
+    <Property Name="membershipId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="customerId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="card_number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="initial_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="final_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.Refcustomers5" FromRole="membership_history" ToRole="customers" />
+    <NavigationProperty Name="Memberships_levels" Relationship="transshipModel.RefMemberships_levels4" FromRole="membership_history" ToRole="Memberships_levels" />
+    <Property Name="membership_HistoryId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="number_shipments" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+  </EntityType>
+  <EntityType Name="Memberships_levels">
+    <Key>
+      <PropertyRef Name="membershipId" />
+    </Key>
+    <Property Name="membershipId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="max_number_shipments" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+    <Property Name="price_markup" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.RefMemberships_levels3" FromRole="Memberships_levels" ToRole="customers" />
+    <NavigationProperty Name="membership_history" Relationship="transshipModel.RefMemberships_levels4" FromRole="Memberships_levels" ToRole="membership_history" />
+  </EntityType>
+  <EntityType Name="password_revovery">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="random_code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="expiration" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="transshipModel.Refusers33" FromRole="password_revovery" ToRole="users" />
+  </EntityType>
+  <EntityType Name="rates">
+    <Key>
+      <PropertyRef Name="vendorId" />
+      <PropertyRef Name="countryId" />
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+      <PropertyRef Name="state" />
+    </Key>
+    <Property Name="vendorId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="countryId" Type="Int64" Nullable="false" />
+    <Property Name="service_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="measure_unitId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="countries" Relationship="transshipModel.Refcountries27" FromRole="rates" ToRole="countries" />
+    <NavigationProperty Name="measure_units" Relationship="transshipModel.Refmeasure_units21" FromRole="rates" ToRole="measure_units" />
+    <NavigationProperty Name="vendors" Relationship="transshipModel.Refvendors25" FromRole="rates" ToRole="vendors" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="recurring_addresses">
+    <Key>
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="addressId" />
+    </Key>
+    <Property Name="addressId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="customerId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="countryId" Type="Int64" />
+    <Property Name="consignee_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="target_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="countries" Relationship="transshipModel.Refcountries24" FromRole="recurring_addresses" ToRole="countries" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.Refcustomers6" FromRole="recurring_addresses" ToRole="customers" />
+  </EntityType>
+  <EntityType Name="service_types">
+    <Key>
+      <PropertyRef Name="service_typeId" />
+    </Key>
+    <Property Name="service_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_input" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="measure_units" Relationship="transshipModel.Refservice_types10" FromRole="service_types" ToRole="measure_units" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refservice_types29" FromRole="service_types" ToRole="shipments" />
+  </EntityType>
+  <EntityType Name="shipment_attachment">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="file_typeId" />
+      <PropertyRef Name="shipment_attachmentId" />
+    </Key>
+    <Property Name="shipmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="file_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="shipment_attachmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="file_types" Relationship="transshipModel.Reffile_types14" FromRole="shipment_attachment" ToRole="file_types" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refshipments13" FromRole="shipment_attachment" ToRole="shipments" />
+    <NavigationProperty Name="users" Relationship="transshipModel.Refusers12" FromRole="shipment_attachment" ToRole="users" />
+    <Property Name="file_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="shipment_cost">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+    </Key>
+    <Property Name="shipmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="service_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="measure_unitId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="quantity" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+    <Property Name="unit_price" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="measure_units" Relationship="transshipModel.Refmeasure_units31" FromRole="shipment_cost" ToRole="measure_units" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refshipments32" FromRole="shipment_cost" ToRole="shipments" />
+    <Property Name="comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="vendor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="shipment_notes">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="shipment_noteId" />
+    </Key>
+    <Property Name="shipmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="shipment_noteId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="userId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="note" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refshipments18" FromRole="shipment_notes" ToRole="shipments" />
+    <NavigationProperty Name="users" Relationship="transshipModel.Refusers17" FromRole="shipment_notes" ToRole="users" />
+  </EntityType>
+  <EntityType Name="shipment_services">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+    </Key>
+    <Property Name="shipmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="service_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="measure_unitId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="quantity" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+    <Property Name="estimated_unit_price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="confirmed_unit_price" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="measure_units" Relationship="transshipModel.Refmeasure_units9" FromRole="shipment_services" ToRole="measure_units" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refshipments7" FromRole="shipment_services" ToRole="shipments" />
+  </EntityType>
+  <EntityType Name="shipment_tracking">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="trackingId" />
+    </Key>
+    <Property Name="shipmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="trackingId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="comentaries" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refshipments15" FromRole="shipment_tracking" ToRole="shipments" />
+    <NavigationProperty Name="users" Relationship="transshipModel.Refusers16" FromRole="shipment_tracking" ToRole="users" />
+  </EntityType>
+  <EntityType Name="shipments">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+    </Key>
+    <Property Name="shipmentId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="customerId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="userId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="countryId" Type="Int64" Nullable="false" />
+    <Property Name="service_typeId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="consignee_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="target_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="shipping_terms" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="tnc_accepted" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="shipment_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="preferred_vendor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estimated_delivery_date" Type="DateTime" Precision="0" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="current_tracking" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="current_tracking_date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="countries" Relationship="transshipModel.Refcountries30" FromRole="shipments" ToRole="countries" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.Refcustomers28" FromRole="shipments" ToRole="customers" />
+    <NavigationProperty Name="service_types" Relationship="transshipModel.Refservice_types29" FromRole="shipments" ToRole="service_types" />
+    <NavigationProperty Name="shipment_attachment" Relationship="transshipModel.Refshipments13" FromRole="shipments" ToRole="shipment_attachment" />
+    <NavigationProperty Name="shipment_cost" Relationship="transshipModel.Refshipments32" FromRole="shipments" ToRole="shipment_cost" />
+    <NavigationProperty Name="shipment_notes" Relationship="transshipModel.Refshipments18" FromRole="shipments" ToRole="shipment_notes" />
+    <NavigationProperty Name="shipment_services" Relationship="transshipModel.Refshipments7" FromRole="shipments" ToRole="shipment_services" />
+    <NavigationProperty Name="shipment_tracking" Relationship="transshipModel.Refshipments15" FromRole="shipments" ToRole="shipment_tracking" />
+    <NavigationProperty Name="users" Relationship="transshipModel.Refusers11" FromRole="shipments" ToRole="users" />
+    <Property Name="vendorId" Type="Decimal" Precision="24" Scale="0" />
+    <NavigationProperty Name="vendors" Relationship="transshipModel.FK_shipments_vendors" FromRole="shipments" ToRole="vendors" />
+    <Property Name="purcharse_order" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="countryId" />
+      <PropertyRef Name="stateId" />
+    </Key>
+    <Property Name="countryId" Type="Int64" Nullable="false" />
+    <Property Name="stateId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="countries" Relationship="transshipModel.Refcountries23" FromRole="state" ToRole="countries" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerId" Type="Decimal" Precision="24" Scale="0" />
+    <Property Name="full_name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="user_type" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="customers" Relationship="transshipModel.Refcustomers1" FromRole="users" ToRole="customers" />
+    <NavigationProperty Name="password_revovery" Relationship="transshipModel.Refusers33" FromRole="users" ToRole="password_revovery" />
+    <NavigationProperty Name="shipment_attachment" Relationship="transshipModel.Refusers12" FromRole="users" ToRole="shipment_attachment" />
+    <NavigationProperty Name="shipment_notes" Relationship="transshipModel.Refusers17" FromRole="users" ToRole="shipment_notes" />
+    <NavigationProperty Name="shipment_tracking" Relationship="transshipModel.Refusers16" FromRole="users" ToRole="shipment_tracking" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.Refusers11" FromRole="users" ToRole="shipments" />
+    <Property Name="confirmationKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vendor_contacts">
+    <Key>
+      <PropertyRef Name="vendorId" />
+      <PropertyRef Name="contactId" />
+    </Key>
+    <Property Name="vendorId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="contactId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="vendors" Relationship="transshipModel.Refvendors26" FromRole="vendor_contacts" ToRole="vendors" />
+  </EntityType>
+  <EntityType Name="vendors">
+    <Key>
+      <PropertyRef Name="vendorId" />
+    </Key>
+    <Property Name="vendorId" Type="Decimal" Nullable="false" Precision="24" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="countryId" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="company_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="rates" Relationship="transshipModel.Refvendors25" FromRole="vendors" ToRole="rates" />
+    <NavigationProperty Name="vendor_contacts" Relationship="transshipModel.Refvendors26" FromRole="vendors" ToRole="vendor_contacts" />
+    <NavigationProperty Name="shipments" Relationship="transshipModel.FK_shipments_vendors" FromRole="vendors" ToRole="shipments" />
+  </EntityType>
+  <Association Name="Refcountries22">
+    <End Type="transshipModel.countries" Role="countries" Multiplicity="1" />
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries23">
+    <End Type="transshipModel.countries" Role="countries" Multiplicity="1" />
+    <End Type="transshipModel.state" Role="state" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="state">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries24">
+    <End Type="transshipModel.countries" Role="countries" Multiplicity="0..1" />
+    <End Type="transshipModel.recurring_addresses" Role="recurring_addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="recurring_addresses">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries27">
+    <End Type="transshipModel.countries" Role="countries" Multiplicity="1" />
+    <End Type="transshipModel.rates" Role="rates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="rates">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries30">
+    <End Type="transshipModel.countries" Role="countries" Multiplicity="1" />
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="shipments">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers2">
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="1" />
+    <End Type="transshipModel.customer_contacts" Role="customer_contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="customer_contacts">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers1">
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="0..1" />
+    <End Type="transshipModel.users" Role="users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers28">
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="1" />
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="shipments">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers5">
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="1" />
+    <End Type="transshipModel.membership_history" Role="membership_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="membership_history">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers6">
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="1" />
+    <End Type="transshipModel.recurring_addresses" Role="recurring_addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="recurring_addresses">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefMemberships_levels3">
+    <End Type="transshipModel.Memberships_levels" Role="Memberships_levels" Multiplicity="0..1" />
+    <End Type="transshipModel.customers" Role="customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Memberships_levels">
+        <PropertyRef Name="membershipId" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="estimated_membership" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reffile_types14">
+    <End Type="transshipModel.file_types" Role="file_types" Multiplicity="1" />
+    <End Type="transshipModel.shipment_attachment" Role="shipment_attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="file_types">
+        <PropertyRef Name="file_typeId" />
+      </Principal>
+      <Dependent Role="shipment_attachment">
+        <PropertyRef Name="file_typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refmeasure_units21">
+    <End Type="transshipModel.measure_units" Role="measure_units" Multiplicity="1" />
+    <End Type="transshipModel.rates" Role="rates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Principal>
+      <Dependent Role="rates">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refmeasure_units31">
+    <End Type="transshipModel.measure_units" Role="measure_units" Multiplicity="1" />
+    <End Type="transshipModel.shipment_cost" Role="shipment_cost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Principal>
+      <Dependent Role="shipment_cost">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refmeasure_units9">
+    <End Type="transshipModel.measure_units" Role="measure_units" Multiplicity="1" />
+    <End Type="transshipModel.shipment_services" Role="shipment_services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Principal>
+      <Dependent Role="shipment_services">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refservice_types10">
+    <End Type="transshipModel.service_types" Role="service_types" Multiplicity="1" />
+    <End Type="transshipModel.measure_units" Role="measure_units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_types">
+        <PropertyRef Name="service_typeId" />
+      </Principal>
+      <Dependent Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefMemberships_levels4">
+    <End Type="transshipModel.Memberships_levels" Role="Memberships_levels" Multiplicity="1" />
+    <End Type="transshipModel.membership_history" Role="membership_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Memberships_levels">
+        <PropertyRef Name="membershipId" />
+      </Principal>
+      <Dependent Role="membership_history">
+        <PropertyRef Name="membershipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers33">
+    <End Type="transshipModel.users" Role="users" Multiplicity="1" />
+    <End Type="transshipModel.password_revovery" Role="password_revovery" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="password_revovery">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refvendors25">
+    <End Type="transshipModel.vendors" Role="vendors" Multiplicity="1" />
+    <End Type="transshipModel.rates" Role="rates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="rates">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refservice_types29">
+    <End Type="transshipModel.service_types" Role="service_types" Multiplicity="1" />
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_types">
+        <PropertyRef Name="service_typeId" />
+      </Principal>
+      <Dependent Role="shipments">
+        <PropertyRef Name="service_typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments13">
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="1" />
+    <End Type="transshipModel.shipment_attachment" Role="shipment_attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_attachment">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers12">
+    <End Type="transshipModel.users" Role="users" Multiplicity="1" />
+    <End Type="transshipModel.shipment_attachment" Role="shipment_attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipment_attachment">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments32">
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="1" />
+    <End Type="transshipModel.shipment_cost" Role="shipment_cost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_cost">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments18">
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="1" />
+    <End Type="transshipModel.shipment_notes" Role="shipment_notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_notes">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers17">
+    <End Type="transshipModel.users" Role="users" Multiplicity="1" />
+    <End Type="transshipModel.shipment_notes" Role="shipment_notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipment_notes">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments7">
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="1" />
+    <End Type="transshipModel.shipment_services" Role="shipment_services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_services">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments15">
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="1" />
+    <End Type="transshipModel.shipment_tracking" Role="shipment_tracking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_tracking">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers16">
+    <End Type="transshipModel.users" Role="users" Multiplicity="1" />
+    <End Type="transshipModel.shipment_tracking" Role="shipment_tracking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipment_tracking">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers11">
+    <End Type="transshipModel.users" Role="users" Multiplicity="1" />
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipments">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refvendors26">
+    <End Type="transshipModel.vendors" Role="vendors" Multiplicity="1" />
+    <End Type="transshipModel.vendor_contacts" Role="vendor_contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="vendor_contacts">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition1_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams1_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition2_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams2_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_shipments_vendors">
+    <End Type="transshipModel.vendors" Role="vendors" Multiplicity="0..1" />
+    <End Type="transshipModel.shipments" Role="shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="shipments">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Customers_view">
+    <Key>
+      <PropertyRef Name="customerid" />
+      <PropertyRef Name="company_name" />
+      <PropertyRef Name="countryId" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="address1" />
+      <PropertyRef Name="customer_status" />
+    </Key>
+    <Property Name="customerid" Type="Decimal" Nullable="false" Precision="24" Scale="0" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="company_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="countryId" Type="Int64" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="customer_status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="membershipId" Type="Decimal" Precision="24" Scale="0" />
+    <Property Name="description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="final_date" Type="DateTime" Precision="0" />
+    <Property Name="initial_date" Type="DateTime" Precision="0" />
+    <Property Name="number_shipments" Type="Decimal" Precision="24" Scale="0" />
+    <Property Name="max_number_shipments" Type="Decimal" Precision="10" Scale="0" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,6 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\bin\Debug\netstandard2.0\TransShip.Bitacora.deps.json
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\bin\Debug\netstandard2.0\TransShip.Bitacora.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.Bitacora.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.Bitacora.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.Bitacora.AssemblyInfoInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Bitacora\obj\Debug\netstandard2.0\TransShip.Bitacora.AssemblyInfo.cs

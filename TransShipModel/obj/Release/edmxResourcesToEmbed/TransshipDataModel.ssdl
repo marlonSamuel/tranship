@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="transshipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISO2" Type="char" MaxLength="2" />
+    <Property Name="CountryName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="LongCountryName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="ISO3" Type="char" MaxLength="3" />
+    <Property Name="NumCode" Type="varchar" MaxLength="6" />
+    <Property Name="UNMemberState" Type="varchar" MaxLength="12" />
+    <Property Name="CallingCode" Type="varchar" MaxLength="8" />
+    <Property Name="CCTLD" Type="varchar" MaxLength="5" />
+    <Property Name="currency" Type="varchar" MaxLength="20" />
+    <Property Name="currencySymbol" Type="varchar" MaxLength="5" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+    <Property Name="validate_state" Type="varchar" MaxLength="1" />
+    <Property Name="mandatory_zipcode" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="customer_contacts">
+    <Key>
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="contactId" />
+    </Key>
+    <Property Name="customerId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="contactId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="phone_number" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estimated_membership" Type="numeric" Precision="24" Scale="0" />
+    <Property Name="countryId" Type="bigint" Nullable="false" />
+    <Property Name="company_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="address2" Type="varchar" MaxLength="250" />
+    <Property Name="zipcode" Type="varchar" MaxLength="10" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="logo" Type="ntext" />
+    <Property Name="card_number" Type="varchar" MaxLength="30" />
+    <Property Name="expiration_date" Type="date" />
+    <Property Name="register_date" Type="date" />
+  </EntityType>
+  <EntityType Name="file_types">
+    <Key>
+      <PropertyRef Name="file_typeId" />
+    </Key>
+    <Property Name="file_typeId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="measure_units">
+    <Key>
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+    </Key>
+    <Property Name="service_typeId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="measure_unitId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="membership_history">
+    <Key>
+      <PropertyRef Name="membership_HistoryId" />
+    </Key>
+    <Property Name="membership_HistoryId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="membershipId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="customerId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="card_number" Type="varchar" MaxLength="30" />
+    <Property Name="expiration_date" Type="date" />
+    <Property Name="payment_date" Type="date" Nullable="false" />
+    <Property Name="initial_date" Type="date" Nullable="false" />
+    <Property Name="final_date" Type="date" Nullable="false" />
+    <Property Name="number_shipments" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Memberships_levels">
+    <Key>
+      <PropertyRef Name="membershipId" />
+    </Key>
+    <Property Name="membershipId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="max_number_shipments" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="price_markup" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="password_revovery">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="random_code" Type="char" MaxLength="10" />
+    <Property Name="expiration" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="rates">
+    <Key>
+      <PropertyRef Name="vendorId" />
+      <PropertyRef Name="countryId" />
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+      <PropertyRef Name="state" />
+    </Key>
+    <Property Name="vendorId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="countryId" Type="bigint" Nullable="false" />
+    <Property Name="service_typeId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="measure_unitId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="recurring_addresses">
+    <Key>
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="addressId" />
+    </Key>
+    <Property Name="customerId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="addressId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countryId" Type="bigint" />
+    <Property Name="consignee_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="target_company" Type="varchar" MaxLength="50" />
+    <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="address2" Type="varchar" MaxLength="250" />
+    <Property Name="zipcode" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="service_types">
+    <Key>
+      <PropertyRef Name="service_typeId" />
+    </Key>
+    <Property Name="service_typeId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_input" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shipment_attachment">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="file_typeId" />
+      <PropertyRef Name="shipment_attachmentId" />
+    </Key>
+    <Property Name="shipmentId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="file_typeId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="shipment_attachmentId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="creation_date" Type="date" Nullable="false" />
+    <Property Name="file_name" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="shipment_cost">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+    </Key>
+    <Property Name="shipmentId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="service_typeId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="measure_unitId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="quantity" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="unit_price" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="comments" Type="varchar" MaxLength="1000" />
+    <Property Name="vendor" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="shipment_notes">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="shipment_noteId" />
+    </Key>
+    <Property Name="shipmentId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="shipment_noteId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="note" Type="varchar" MaxLength="4000" Nullable="false" />
+    <Property Name="status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="creation_date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shipment_services">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="service_typeId" />
+      <PropertyRef Name="measure_unitId" />
+    </Key>
+    <Property Name="shipmentId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="service_typeId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="measure_unitId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="quantity" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="estimated_unit_price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="confirmed_unit_price" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="shipment_tracking">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+      <PropertyRef Name="trackingId" />
+    </Key>
+    <Property Name="shipmentId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="trackingId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="comentaries" Type="varchar" MaxLength="1000" />
+    <Property Name="creation_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shipments">
+    <Key>
+      <PropertyRef Name="shipmentId" />
+    </Key>
+    <Property Name="shipmentId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="userId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="countryId" Type="bigint" Nullable="false" />
+    <Property Name="service_typeId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="consignee_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="target_company" Type="varchar" MaxLength="50" />
+    <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="address2" Type="varchar" MaxLength="250" />
+    <Property Name="zipcode" Type="varchar" MaxLength="10" />
+    <Property Name="shipping_terms" Type="varchar" MaxLength="5" />
+    <Property Name="tnc_accepted" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="shipment_date" Type="date" Nullable="false" />
+    <Property Name="preferred_vendor" Type="varchar" MaxLength="100" />
+    <Property Name="estimated_delivery_date" Type="date" />
+    <Property Name="description" Type="varchar" MaxLength="4000" Nullable="false" />
+    <Property Name="current_tracking" Type="varchar" MaxLength="50" />
+    <Property Name="current_tracking_date" Type="date" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="vendorId" Type="numeric" Precision="24" Scale="0" />
+    <Property Name="purcharse_order" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="countryId" />
+      <PropertyRef Name="stateId" />
+    </Key>
+    <Property Name="countryId" Type="bigint" Nullable="false" />
+    <Property Name="stateId" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="numeric" Precision="24" Scale="0" />
+    <Property Name="full_name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="user_type" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="confirmationKey" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="vendor_contacts">
+    <Key>
+      <PropertyRef Name="vendorId" />
+      <PropertyRef Name="contactId" />
+    </Key>
+    <Property Name="vendorId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="contactId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="phone_number" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vendors">
+    <Key>
+      <PropertyRef Name="vendorId" />
+    </Key>
+    <Property Name="vendorId" Type="numeric" Precision="24" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countryId" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="company_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="address2" Type="varchar" MaxLength="250" />
+    <Property Name="zipcode" Type="varchar" MaxLength="10" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="logo" Type="ntext" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'transvia.dbo.Customers_view' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Customers_view">
+    <Key>
+      <PropertyRef Name="customerid" />
+      <PropertyRef Name="company_name" />
+      <PropertyRef Name="countryId" />
+      <PropertyRef Name="state" />
+      <PropertyRef Name="address1" />
+      <PropertyRef Name="customer_status" />
+    </Key>
+    <Property Name="customerid" Type="numeric" Precision="24" Scale="0" Nullable="false" />
+    <Property Name="logo" Type="ntext" />
+    <Property Name="company_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="countryId" Type="bigint" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="80" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="address2" Type="varchar" MaxLength="250" />
+    <Property Name="zipcode" Type="varchar" MaxLength="10" />
+    <Property Name="customer_status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="50" />
+    <Property Name="membershipId" Type="numeric" Precision="24" Scale="0" />
+    <Property Name="description" Type="varchar" MaxLength="250" />
+    <Property Name="expiration_date" Type="date" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+    <Property Name="final_date" Type="date" />
+    <Property Name="initial_date" Type="date" />
+    <Property Name="number_shipments" Type="numeric" Precision="24" Scale="0" />
+    <Property Name="max_number_shipments" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <Association Name="Refcountries22">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="customers" Type="Self.customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries23">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="state" Type="Self.state" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="state">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries24">
+    <End Role="countries" Type="Self.countries" Multiplicity="0..1" />
+    <End Role="recurring_addresses" Type="Self.recurring_addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="recurring_addresses">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcountries27">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="rates" Type="Self.rates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="rates">
+        <PropertyRef Name="countryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers1">
+    <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers2">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="customer_contacts" Type="Self.customer_contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="customer_contacts">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers5">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="membership_history" Type="Self.membership_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="membership_history">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refcustomers6">
+    <End Role="customers" Type="Self.customers" Multiplicity="1" />
+    <End Role="recurring_addresses" Type="Self.recurring_addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="recurring_addresses">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reffile_types14">
+    <End Role="file_types" Type="Self.file_types" Multiplicity="1" />
+    <End Role="shipment_attachment" Type="Self.shipment_attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="file_types">
+        <PropertyRef Name="file_typeId" />
+      </Principal>
+      <Dependent Role="shipment_attachment">
+        <PropertyRef Name="file_typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refmeasure_units21">
+    <End Role="measure_units" Type="Self.measure_units" Multiplicity="1" />
+    <End Role="rates" Type="Self.rates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Principal>
+      <Dependent Role="rates">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refmeasure_units31">
+    <End Role="measure_units" Type="Self.measure_units" Multiplicity="1" />
+    <End Role="shipment_cost" Type="Self.shipment_cost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Principal>
+      <Dependent Role="shipment_cost">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refmeasure_units9">
+    <End Role="measure_units" Type="Self.measure_units" Multiplicity="1" />
+    <End Role="shipment_services" Type="Self.shipment_services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Principal>
+      <Dependent Role="shipment_services">
+        <PropertyRef Name="service_typeId" />
+        <PropertyRef Name="measure_unitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefMemberships_levels3">
+    <End Role="Memberships_levels" Type="Self.Memberships_levels" Multiplicity="0..1" />
+    <End Role="customers" Type="Self.customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Memberships_levels">
+        <PropertyRef Name="membershipId" />
+      </Principal>
+      <Dependent Role="customers">
+        <PropertyRef Name="estimated_membership" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RefMemberships_levels4">
+    <End Role="Memberships_levels" Type="Self.Memberships_levels" Multiplicity="1" />
+    <End Role="membership_history" Type="Self.membership_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Memberships_levels">
+        <PropertyRef Name="membershipId" />
+      </Principal>
+      <Dependent Role="membership_history">
+        <PropertyRef Name="membershipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refservice_types10">
+    <End Role="service_types" Type="Self.service_types" Multiplicity="1" />
+    <End Role="measure_units" Type="Self.measure_units" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service_types">
+        <PropertyRef Name="service_typeId" />
+      </Principal>
+      <Dependent Role="measure_units">
+        <PropertyRef Name="service_typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments13">
+    <End Role="shipments" Type="Self.shipments" Multiplicity="1" />
+    <End Role="shipment_attachment" Type="Self.shipment_attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_attachment">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments15">
+    <End Role="shipments" Type="Self.shipments" Multiplicity="1" />
+    <End Role="shipment_tracking" Type="Self.shipment_tracking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_tracking">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments18">
+    <End Role="shipments" Type="Self.shipments" Multiplicity="1" />
+    <End Role="shipment_notes" Type="Self.shipment_notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_notes">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments32">
+    <End Role="shipments" Type="Self.shipments" Multiplicity="1" />
+    <End Role="shipment_cost" Type="Self.shipment_cost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_cost">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refshipments7">
+    <End Role="shipments" Type="Self.shipments" Multiplicity="1" />
+    <End Role="shipment_services" Type="Self.shipment_services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shipments">
+        <PropertyRef Name="shipmentId" />
+      </Principal>
+      <Dependent Role="shipment_services">
+        <PropertyRef Name="shipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers12">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="shipment_attachment" Type="Self.shipment_attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipment_attachment">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers16">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="shipment_tracking" Type="Self.shipment_tracking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipment_tracking">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers17">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="shipment_notes" Type="Self.shipment_notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="shipment_notes">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refusers33">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="password_revovery" Type="Self.password_revovery" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="password_revovery">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refvendors25">
+    <End Role="vendors" Type="Self.vendors" Multiplicity="1" />
+    <End Role="rates" Type="Self.rates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="rates">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Refvendors26">
+    <End Role="vendors" Type="Self.vendors" Multiplicity="1" />
+    <End Role="vendor_contacts" Type="Self.vendor_contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="vendorId" />
+      </Principal>
+      <Dependent Role="vendor_contacts">
+        <PropertyRef Name="vendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="transshipModelStoreContainer">
+    <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_contacts" EntityType="Self.customer_contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="file_types" EntityType="Self.file_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="measure_units" EntityType="Self.measure_units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="membership_history" EntityType="Self.membership_history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Memberships_levels" EntityType="Self.Memberships_levels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="password_revovery" EntityType="Self.password_revovery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rates" EntityType="Self.rates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recurring_addresses" EntityType="Self.recurring_addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="service_types" EntityType="Self.service_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipment_attachment" EntityType="Self.shipment_attachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipment_cost" EntityType="Self.shipment_cost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipment_notes" EntityType="Self.shipment_notes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipment_services" EntityType="Self.shipment_services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipment_tracking" EntityType="Self.shipment_tracking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shipments" EntityType="Self.shipments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="state" EntityType="Self.state" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendor_contacts" EntityType="Self.vendor_contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vendors" EntityType="Self.vendors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers_view" EntityType="Self.Customers_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customers_view].[customerid] AS [customerid], 
+    [Customers_view].[logo] AS [logo], 
+    [Customers_view].[company_name] AS [company_name], 
+    [Customers_view].[countryId] AS [countryId], 
+    [Customers_view].[CountryName] AS [CountryName], 
+    [Customers_view].[state] AS [state], 
+    [Customers_view].[city] AS [city], 
+    [Customers_view].[address1] AS [address1], 
+    [Customers_view].[address2] AS [address2], 
+    [Customers_view].[zipcode] AS [zipcode], 
+    [Customers_view].[customer_status] AS [customer_status], 
+    [Customers_view].[full_name] AS [full_name], 
+    [Customers_view].[membershipId] AS [membershipId], 
+    [Customers_view].[description] AS [description], 
+    [Customers_view].[expiration_date] AS [expiration_date], 
+    [Customers_view].[status] AS [status], 
+    [Customers_view].[final_date] AS [final_date], 
+    [Customers_view].[initial_date] AS [initial_date], 
+    [Customers_view].[number_shipments] AS [number_shipments], 
+    [Customers_view].[max_number_shipments] AS [max_number_shipments]
+    FROM [dbo].[Customers_view] AS [Customers_view]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="Refcountries22" Association="Self.Refcountries22">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries23" Association="Self.Refcountries23">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="state" EntitySet="state" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries24" Association="Self.Refcountries24">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="recurring_addresses" EntitySet="recurring_addresses" />
+    </AssociationSet>
+    <AssociationSet Name="Refcountries27" Association="Self.Refcountries27">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="rates" EntitySet="rates" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers1" Association="Self.Refcustomers1">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers2" Association="Self.Refcustomers2">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="customer_contacts" EntitySet="customer_contacts" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers5" Association="Self.Refcustomers5">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="membership_history" EntitySet="membership_history" />
+    </AssociationSet>
+    <AssociationSet Name="Refcustomers6" Association="Self.Refcustomers6">
+      <End Role="customers" EntitySet="customers" />
+      <End Role="recurring_addresses" EntitySet="recurring_addresses" />
+    </AssociationSet>
+    <AssociationSet Name="Reffile_types14" Association="Self.Reffile_types14">
+      <End Role="file_types" EntitySet="file_types" />
+      <End Role="shipment_attachment" EntitySet="shipment_attachment" />
+    </AssociationSet>
+    <AssociationSet Name="Refmeasure_units21" Association="Self.Refmeasure_units21">
+      <End Role="measure_units" EntitySet="measure_units" />
+      <End Role="rates" EntitySet="rates" />
+    </AssociationSet>
+    <AssociationSet Name="Refmeasure_units31" Association="Self.Refmeasure_units31">
+      <End Role="measure_units" EntitySet="measure_units" />
+      <End Role="shipment_cost" EntitySet="shipment_cost" />
+    </AssociationSet>
+    <AssociationSet Name="Refmeasure_units9" Association="Self.Refmeasure_units9">
+      <End Role="measure_units" EntitySet="measure_units" />
+      <End Role="shipment_services" EntitySet="shipment_services" />
+    </AssociationSet>
+    <AssociationSet Name="RefMemberships_levels3" Association="Self.RefMemberships_levels3">
+      <End Role="Memberships_levels" EntitySet="Memberships_levels" />
+      <End Role="customers" EntitySet="customers" />
+    </AssociationSet>
+    <AssociationSet Name="RefMemberships_levels4" Association="Self.RefMemberships_levels4">
+      <End Role="Memberships_levels" EntitySet="Memberships_levels" />
+      <End Role="membership_history" EntitySet="membership_history" />
+    </AssociationSet>
+    <AssociationSet Name="Refservice_types10" Association="Self.Refservice_types10">
+      <End Role="service_types" EntitySet="service_types" />
+      <End Role="measure_units" EntitySet="measure_units" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments13" Association="Self.Refshipments13">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_attachment" EntitySet="shipment_attachment" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments15" Association="Self.Refshipments15">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_tracking" EntitySet="shipment_tracking" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments18" Association="Self.Refshipments18">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_notes" EntitySet="shipment_notes" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments32" Association="Self.Refshipments32">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_cost" EntitySet="shipment_cost" />
+    </AssociationSet>
+    <AssociationSet Name="Refshipments7" Association="Self.Refshipments7">
+      <End Role="shipments" EntitySet="shipments" />
+      <End Role="shipment_services" EntitySet="shipment_services" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers12" Association="Self.Refusers12">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipment_attachment" EntitySet="shipment_attachment" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers16" Association="Self.Refusers16">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipment_tracking" EntitySet="shipment_tracking" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers17" Association="Self.Refusers17">
+      <End Role="users" EntitySet="users" />
+      <End Role="shipment_notes" EntitySet="shipment_notes" />
+    </AssociationSet>
+    <AssociationSet Name="Refusers33" Association="Self.Refusers33">
+      <End Role="users" EntitySet="users" />
+      <End Role="password_revovery" EntitySet="password_revovery" />
+    </AssociationSet>
+    <AssociationSet Name="Refvendors25" Association="Self.Refvendors25">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="rates" EntitySet="rates" />
+    </AssociationSet>
+    <AssociationSet Name="Refvendors26" Association="Self.Refvendors26">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="vendor_contacts" EntitySet="vendor_contacts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

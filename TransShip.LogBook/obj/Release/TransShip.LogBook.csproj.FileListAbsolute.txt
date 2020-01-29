@@ -1,0 +1,16 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\bin\Release\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\bin\Release\TransShip.LogBook.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\bin\Release\NLog.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\bin\Release\NLog.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\obj\Release\TransShip.LogBook.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\obj\Release\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\obj\Release\TransShip.LogBook.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.LogBook\obj\Release\TransShip.LogBook.csprojResolveAssemblyReference.cache
+C:\transship\TransShip\TransShip.LogBook\bin\Release\TransShip.LogBook.dll
+C:\transship\TransShip\TransShip.LogBook\bin\Release\TransShip.LogBook.pdb
+C:\transship\TransShip\TransShip.LogBook\bin\Release\NLog.dll
+C:\transship\TransShip\TransShip.LogBook\bin\Release\NLog.xml
+C:\transship\TransShip\TransShip.LogBook\obj\Release\TransShip.LogBook.csprojResolveAssemblyReference.cache
+C:\transship\TransShip\TransShip.LogBook\obj\Release\TransShip.LogBook.csproj.CoreCompileInputs.cache
+C:\transship\TransShip\TransShip.LogBook\obj\Release\TransShip.LogBook.dll
+C:\transship\TransShip\TransShip.LogBook\obj\Release\TransShip.LogBook.pdb

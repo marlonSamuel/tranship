@@ -1,0 +1,12 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Objects\bin\Release\TransShip.Objects.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Objects\bin\Release\TransShip.Objects.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Objects\obj\Release\TransShip.Objects.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Objects\obj\Release\TransShip.Objects.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Objects\obj\Release\TransShip.Objects.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.Objects\obj\Release\TransShip.Objects.csprojResolveAssemblyReference.cache
+C:\transship\TransShip\TransShip.Objects\bin\Release\TransShip.Objects.dll
+C:\transship\TransShip\TransShip.Objects\bin\Release\TransShip.Objects.pdb
+C:\transship\TransShip\TransShip.Objects\obj\Release\TransShip.Objects.csprojResolveAssemblyReference.cache
+C:\transship\TransShip\TransShip.Objects\obj\Release\TransShip.Objects.csproj.CoreCompileInputs.cache
+C:\transship\TransShip\TransShip.Objects\obj\Release\TransShip.Objects.dll
+C:\transship\TransShip\TransShip.Objects\obj\Release\TransShip.Objects.pdb

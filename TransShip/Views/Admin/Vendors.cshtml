@@ -1,0 +1,359 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Vendors";
+}
+
+<div class="content" id="registerBox">
+    <div class="box">
+        <h1>Vendors</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.vendorsController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn " data-bind="click: model.vendorsController.new"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="vendorsGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Company Logo</th>
+                        <th>Company Name</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.vendorsController.vendors,
+                                    options: { 
+                                            deferRender: true,
+                                            paging: true,
+                                            searching: true,
+                                            pageLength: 10,
+                                            responsive: true,
+                                            bDestroy: true,
+                                            order: [[1, 'asc']],
+                                            dom: dataTableDom,
+                                        }
+                                  }">
+                    <tr>
+                        <th><img style="width:50px; height:50px;" data-bind="attr: {src: (logo !== null ? '../Vendors/'+vendorId+'/'+logo : emptyLogo)}" /></th>
+                        <td data-bind="text: company_name"></td>
+                        <td data-bind="text: country"></td>
+                        <td data-bind="text: state"></td>
+                        <td data-bind="text: city"></td>
+                        <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.vendorsController.edit"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.vendorsController.remove"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div data-bind="visible: (model.vendorsController.editMode() || model.vendorsController.insertMode())">
+
+            <form id="vendorFrm" name="vendorFrm">
+                <div class="row" data-bind="with: model.vendorsController.vendor">
+                    <div class="form-group col-sm-5 col-md-5">
+                        <label for="companyName">Company Name<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control validate" data-error=".errorCompanyName"
+                               id="companyName" placeholder="Company Name" data-bind="value: company_name"
+                               minlength="3" maxlength="100" required>
+                        <span class="errorCompanyName text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="status">Status<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="status" placeholder="Status"
+                                data-bind="options: model.ratesController.statusOptions, optionsText: 'value', optionsValue: 'name', value: status"
+                                data-error=".errorStatus"
+                                required></select>
+                        <label class="errorStatus text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-5 col-md-5">
+                        <label for="logo">Logo</label><br />
+                        <img id="previewLogo" style="width:200px; height:100px;" data-bind="attr:{src: (logo() !== '' ? '../Vendors/'+vendorId()+'/'+logo() : (logo() === null ? emptyLogo : emptyLogo))}" />
+
+                        <label>select a new logo<input type="checkbox" style="margin-left:10px;" data-bind="checked: model.vendorsController.isVisible" /></label>
+                        <!-- ko if: model.vendorsController.isVisible -->
+                        <input type="file" class="form-control validate" data-error=".errorFile"
+                               id="logo" dane="logo" placeholder="Company Name" data-bind="event:{ change: model.vendorsController.PreviewImage}">
+                        <label class="errorCompanyName text-danger help-inline"></label>
+                        <!-- /ko -->
+                    </div>
+
+                    <div class="form-group col-sm-5">
+                        <label for="addr1">Address One<span class="text-danger"> *</span></label>
+                        <input type="text" data-bind="value: address1" class="form-control validate" id="addr1" name="addr1"
+                               placeholder="Address One" maxlength="250" data-error=".errorAddr1" required>
+                        <span class="errorAddr1 text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="addr2">Address Two</label>
+                        <input type="text" data-bind="value: address2" class="form-control" id="addr2" name="addr2" placeholder="Address Two">
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label>Postal Code</label>
+                        <label for="zipcode" data-bind="text: (model.vendorsController.mandatoryZipcode() === true ? ' *' : ''), css: (model.vendorsController.mandatoryZipcode() === true ? 'text-danger' : 'text-default')"></label>
+                        <input type="number" min="0"
+                               data-bind="value: zipcode, attr: { required: model.vendorsController.mandatoryZipcode}"
+                               class="form-control validate" data-error=".errorZipcode" maxlength="5" id="zipcode" name="zipcode" placeholder="Postal Code">
+                        <label class="errorZipcode text-danger help-inline"></label>
+                    </div>
+
+
+                    <div class="form-group col-sm-4">
+                        <label class="" for="country">Country<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="country" placeholder="Country"
+                                data-bind="options: model.vendorsController.countries, optionsText: 'CountryName', optionsValue: 'CountryID', value: countryId, event : {change : model.vendorsController.countryChange}"
+                                required></select>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label class="" for="state">State<span class="text-danger"> *</span></label>
+                        <!-- ko ifnot: model.vendorsController.validateState -->
+                        <input type="text" name="state" class="form-control" id="state" placeholder="State"
+                               data-bind="value: stateText" data-error=".errorState"
+                               minlength="3" maxlength="50" required>
+                        <label class="errorState text-danger help-inline"></label>
+                        <!-- /ko -->
+                        <!-- ko if: model.vendorsController.validateState -->
+                        <select class="form-control" id="stateOf" placeholder="State"
+                                data-bind="options: model.vendorsController.states, optionsText: 'name', optionsValue: 'name', value: state"
+                                required></select>
+                        <!-- /ko -->
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" data-bind="value: city"
+                               data-error=".errorCity" minlength="3" maxlength="50">
+                        <label class="errorCity text-danger help-inline"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.vendorsController.update, visible: model.vendorsController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.vendorsController.save, visible: model.vendorsController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.vendorsController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+            <!-- ko if: model.vendorsController.editMode -->
+            <hr />
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#contacts">Contacts</a></li>
+                <li><a data-toggle="tab" href="#prices">Prices</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="contacts" class="tab-pane active box">
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#collapseVendorContact">Add/Edit Contact</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseVendorContact" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <form id="vendorContactsFrm" name="vendorContactsFrm">
+                                                <div class="form-row align-items-center" data-bind="with: model.vendorContactsController.vendorContact">
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="contactName">Name<span class="text-danger"> *</span></label>
+                                                        <input type="text" class="form-control validate" id="contactName" name="contactName"
+                                                               placeholder="Name" data-bind="value: full_name"
+                                                               data-error=".errorContactName" minlength="3" maxlength="50" required>
+                                                        <span class="errorContactName text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="contactTitle">Title<span class="text-danger"> *</span></label>
+                                                        <input type="text" class="form-control" id="contactTitle" name="contactTitle" placeholder="Title" data-bind="value: title"
+                                                               data-error=".errorContactTitle" minlength="3" maxlength="25" required>
+                                                        <span class="errorContactTitle text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="contactPhone">Phone Number</label>
+                                                        <input type="number" class="form-control" id="contactPhone" name="contactPhone" placeholder="Phone Number" data-bind="value: phone_number"
+                                                               data-error=".errorContactPhone" minlength="3" maxlength="25">
+                                                        <span class="errorContactPhone text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="contactEmail">e-mail<span class="text-danger"> *</span></label>
+                                                        <input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="e-mail" data-bind="value: email"
+                                                               data-error=".errorEmail"
+                                                               minlength="3" maxlength="50" required>
+                                                        <span class="errorEmail text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-2 pull-right">
+
+                                                        <a href="#" class="btn btn-info mybtn" style="margin: 1px;" data-bind="click: model.vendorContactsController.save, visible: model.vendorContactsController.insertMode"><i class="fa fa-plus-circle"></i> Save&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                        <a href="#" class="btn btn-info mybtn" style="margin: 1px;" data-bind="click: model.vendorContactsController.update, visible: model.vendorContactsController.editMode"><i class="fa fa-save"></i> Save</a>
+                                                        <a href="#" class="btn btn-danger mybtn" style="margin: 1px;" data-bind="click:  model.vendorContactsController.cancel"><i class="fa fa-undo"></i> Cancel</a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="table-responsive col-sm-12">
+
+                            <table id="vendorContactsGrid" class="table table-hover" data-bind="visible: model.vendorContactsController.gridMode()">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Phone number</th>
+                                        <th>email</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="dataTablesForEach : {
+                                    data: model.vendorContactsController.vendorContacts,
+                                    options: dataTableOptions
+                                  }">
+                                    <tr>
+                                        <td data-bind="text: full_name"></td>
+                                        <td data-bind="text: title"></td>
+                                        <td data-bind="text: phone_number"></td>
+                                        <td data-bind="text: email"></td>
+                                        <td>
+                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.vendorContactsController.edit"><i class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.vendorContactsController.remove"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="prices" class="tab-pane box">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#collapseRate">Add/Edit Price</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseRate" class="panel-collapse collapse">
+                                        <div class="panel-body" style="margin: 0px -22px 0px -22px">
+                                            <form id="ratesFrm" name="ratesFrm">
+                                                <div class="form-row align-items-center" data-bind="with: model.ratesController.rate">
+                                                    <div class="form-group col-sm-1" style="width:130px;">
+                                                        <label class="" for="country">Country<span class="text-danger"> *</span></label>
+                                                        <select class="form-control" id="country" name="country" placeholder="Country"
+                                                                data-bind="enable: model.ratesController.insertMode, options: model.ratesController.countries, optionsText: 'CountryName', optionsValue: 'CountryID', value: countryId, event : {change : model.ratesController.countryChange}"
+                                                                style="width: 130px;" required></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="state">State<span class="text-danger"> *</span></label>
+
+                                                        <select class="form-control" id="stateOf" name="stateOf" placeholder="State"
+                                                                data-bind="enable: model.ratesController.insertMode, options: model.ratesController.states, optionsText: 'name', optionsValue: 'name', value: state"
+                                                                style="width: 150px;" required></select>
+
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="serviceType">Service<span class="text-danger"> *</span></label>
+                                                        <select class="form-control" id="serviceType" name="serviceType" placeholder="Service Type"
+                                                                data-bind="enable: model.ratesController.insertMode, options: model.ratesController.serviceTypes, optionsText: 'descripcion', optionsValue: 'service_typeId', value: service_typeId, event : {change : model.ratesController.serviceTypeChange}"
+                                                                style="width: 130px;" required></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="" for="measureUnit">Measure Unit<span class="text-danger"> *</span></label>
+                                                        <select class="form-control" id="measureUnit" name="measureUnit" placeholder="Measure Unit"
+                                                                data-bind="enable: model.ratesController.insertMode, options: model.ratesController.measureUnits, optionsText: 'description', optionsValue: 'measure_unitId', value: measure_unitId"
+                                                                style="width: 130px; margin-left:-20px;" required></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-1">
+                                                        <label class="" for="price">Price<span class="text-danger"> *</span></label>
+                                                        <input type="number" class="form-control" id="price" placeholder="Price" min="0" pattern="\d+(\.\d{2})?"
+                                                               data-bind="value: price"
+                                                               style="width: 80px; margin-left:-40px;"
+                                                               data-error=".errorPrice" minlength="1" maxlength="12" step="0.01" required>
+                                                        <span class="errorPrice text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-1" style="width: 90px;">
+                                                        <label class="" for="status">Status<span class="text-danger"> *</span></label>
+                                                        <select class="form-control" id="status" placeholder="Status"
+                                                                data-bind="options: model.ratesController.statusOptions, optionsText: 'value', optionsValue: 'name', value: status"
+                                                                style="width: 90px; margin-left:-30px;" required></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-1" style="margin-left:20px;">
+                                                        <a href="#" class="btn btn-info mybtn" style="margin: 1px;" data-bind="click: model.ratesController.save, visible: model.ratesController.insertMode"><i class="fa fa-plus-circle"></i> Save&nbsp;&nbsp;&nbsp;</a>
+                                                        <a href="#" class="btn btn-info mybtn" style="margin: 1px;" data-bind="click: model.ratesController.update, visible: model.ratesController.editMode"><i class="fa fa-pencil"></i> Save&nbsp;&nbsp;</a>
+                                                        <a href="#" class="btn btn-danger mybtn" style="margin: 1px;" data-bind="click:  model.ratesController.cancel"><i class="fa fa-undo"></i> Cancel</a>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table id="ratesGrid" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Country</th>
+                                            <th>State</th>
+                                            <th>Type</th>
+                                            <th>Unit</th>
+                                            <th>Price US$</th>
+                                            <th>status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="dataTablesForEach : {
+                                    data: model.ratesController.rates,
+                                    options: dataTableOptions
+                                  }">
+                                        <tr>
+                                            <td data-bind="text: countryName"></td>
+                                            <td data-bind="text: state"></td>
+                                            <td data-bind="text: serviceTypeDescription"></td>
+                                            <td data-bind="text: measureUnitDescription"></td>
+                                            <td data-bind="text: price.toFixed(2)"></td>
+                                            <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                                            <td>
+                                                <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.ratesController.edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.ratesController.remove"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        model.vendorsController.initialize();
+
+
+    });
+</script>

@@ -1,0 +1,708 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Shipments";
+}
+
+<div class="content">
+    <div class="box" >
+    
+        <div class="table-responsive" data-bind="visible: model.shipmentsController.gridMode()">
+            <h1>Shipments</h1>
+            <hr />
+            <!-- div class="pull-right">
+                    <a href="#" class="btn btn-success btn-sm" data-bind="click: model.shipmentsController.showNewShipment"><i class="fa fa-plus-circle"></i> New</a>
+            </div -->
+            <table id="shipmentsNewGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>PO#</th>
+                        <th>Customer Name</th>
+                        <th>Name Consignee</th>
+                        <th>Receiving Company</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>Date Shipments</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.shipmentsController.shipments, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: purcharse_order" width="10%"></td>
+                        <td data-bind="text: company_name"></td>
+                        <td data-bind="text: consignee_name"></td>
+                        <td data-bind="text: target_company"></td>
+                        <td data-bind="text: CountryName"></td>
+                        <td data-bind="text: state"></td>
+                        <td data-bind="text: moment(shipment_date).format('MM/DD/YYYY')"></td>
+                        <td><span class="label" data-bind="text: (status === 'N' ? 'Saved' : 'Pending Quote'), css: (status === 'N' ? 'label-success' : 'label-primary')"></span></td>
+                        <td width="17%">
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.shipmentsController.editShipment"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Add notes" data-bind="attr: { href: '/Admin/Notes?shipmentId=' + shipmentId }"><i class="fa fa-sticky-note-o"></i></a>
+                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Add files" data-bind="attr: { href: '/Admin/Files?shipmentId=' + shipmentId }"><i class="fa fa-file-text-o"></i></a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.shipmentsController.editMode() || model.shipmentsController.insertMode())">
+
+            <h3>Shipment</h3>
+             <hr />
+            <form id="shipForm" name="shipForm">
+                <div class="row">
+                    <div class="col-sm-8"><label>Company Name: </label>
+                        <input type="text" class="form-control" data-bind="value: model.shipmentsController.shipment.company_name" disabled />
+                    </div>
+                    <div class="col-sm-4">
+                        <label>PO#<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control" data-bind="value: model.shipmentsController.shipment.purcharse_order"
+                               data-error="errorPO" required/>
+                        <span class="errorPO text-danger help-inline"></span>
+                    </div>
+                </div>
+            </form>
+            
+            
+            <div data-bind="with: model.shipmentsController.shipment">
+                <div id="destination" class="box" style="margin-top:5px;">
+                    <form name="destinationFrm" id="destinationFrm">
+                        
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label >Name of Consignee<span class="text-danger"> *</span></label>
+                                <!-- ko if: model.shipmentsController.validateInputs -->
+                                <input id="consigneeNameInput" name="consigneeNameInput" class="form-control"
+                                        data-bind="value: consignee_name" 
+                                        data-error="errorConsigneeNameInput" minlength="3" maxlength="100" required/>
+                                <span class="errorConsigneeNameInput text-danger help-inline"></span>
+                                <!-- /ko -->
+                                <!-- ko if: model.shipmentsController.validateSelect --> 
+                                <select class="form-control" id="consigneeNameSelect" name="consigneeNameSelect" placeholder="consignee name"
+                                        data-bind="options: model.shipmentsController.consignees, optionsText: 'consignee_name', optionsValue: 'addressId', value: addressId, event : {change : model.shipmentsController.getAddress}, optionsCaption: 'Choose...'" 
+                                        data-error="errorConsigneeNameSelect" required>
+                                </select>
+                                <span class="errorConsigneeNameSelect text-danger help-inline"></span>
+                                <!-- /ko -->
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="reciving_company">Receiving Company</label>
+                                <input id="reciving_company" name="reciving_company" type="text" class="form-control" 
+                                        data-bind="value: target_company"
+                                        data-error="errorRecivingCompany" maxlength="50">
+                                <span class="errorRecivingCompany text-danger help-inline"></span>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="phone_number">Phone Number<span class="text-danger"> *</span></label>
+                                <input id="phone_number" name="phone_number" type="number" class="form-control validate" data-bind="value: phone_number"
+                                data-error="errorPhoneNumber" minlength="3" maxlength="50" required>
+                                <span class="errorPhoneNumber text-danger help-inline"></span>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="address1">Address One<span class="text-danger"> *</span></label>
+                                <input id="address1" name="address1" type="text" class="form-control" data-bind="value: address1"
+                                        data-error="errorAddres1" minlength="3" maxlength="250" required>
+                                <span class="errorAddress1 text-danger help-inline"></span>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="address2">Address Two</label>
+                                <input id="address2" name="address2" type="text" class="form-control" data-bind="value: address2"
+                                        data-error="errorAddress2" maxlength="250">
+                                <span class="errorAddress2 text-danger help-inline"></span>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label>Postal Code</label>
+                                <label for="zipcode" data-bind="text: (model.shipmentsController.mandatoryZipcode() === true ? ' *' : ''), css: (model.shipmentsController.mandatoryZipcode() === true ? 'text-danger' : 'text-default')"></label>
+                                <input id="zipcode" name="zipcode" type="text" class="form-control" data-bind="value: zipcode, attr: { required: model.shipmentsController.mandatoryZipcode}"
+                                        data-error="errorZipcode" minlength="3" maxlength="10">
+                                <span class="errorZipcode text-danger help-inline"></span>       
+                            </div>
+                            
+                            <div class="form-group col-sm-3">
+                                <label for="country">Country<span class="text-danger"> *</span></label>
+                                <select class="form-control" id="country" name="country" placeholder="Country"
+                                        data-bind="options: model.shipmentsController.countries, optionsText: 'CountryName', optionsValue: 'CountryID', value: countryId, event : {change : model.shipmentsController.countryChange}" 
+                                        data-error="errorCountry" required>
+                                </select>
+                                <span class="errorCountry text-danger help-inline"></span>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="state">State<span class="text-danger"> *</span></label>
+                                <!-- ko ifnot: model.shipmentsController.validateState -->
+                                <input type="text" class="form-control" id="state" name="state" placeholder="State" data-bind="value: stateText" 
+                                        data-error="errorState" minlength="3" maxlength="50" required>
+                                <span class="errorState text-danger help-inline"></span>
+                                <!-- /ko -->
+                                <select class="form-control" id="stateOf" placeholder="State" data-bind="options: model.shipmentsController.states, optionsText: 'name', optionsValue: 'name', value: state, visible: model.shipmentsController.validateState" required></select>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label for="city">City</label>
+                                <input id="city" name="city" type="text" class="form-control" data-bind="value: city"
+                                        data-error="errorCity" minlength="3" maxlength="50">
+                                <span class="errorCity text-danger help-inline"></span>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="vendor">Vendors</label>
+                                <select id="vendor" name="vendor" class="form-control" 
+                                        data-bind="options: model.shipmentsController.vendors, 
+                                                    optionsText: 'company_name',
+                                                    optionsValue: 'vendorId',
+                                                    optionsCaption: 'Choose...', 
+                                                    value: vendorId" required>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3" style="margin-top: 5px;">
+                                <br />
+                                <button type="button" data-bind="click: model.shipmentsController.setVendorPrices"  data-toggle="tooltip" data-placement="top" title="Suggest Vendor Prices" class="btn btn-success mybtn"><i class="fa fa-check"></i> Prices</button>
+                            </div>
+                            
+                            <div class="form-group col-sm-3">
+                                <label for="delivery_date">Estimated delivery date<span class="text-danger"> *</span></label>
+                                <input id="delivery_date" name="delivery_date" type="date" class="form-control" 
+                                        data-bind="datePicker: estimated_delivery_date, attr: { 'min': moment().format('YYYY-MM-DD') } "  
+                                        data-error="errorDeliveryDate" required>
+                                <span class="errorDeliveryDate text-danger help-inline"></span>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <h4 class="">Total&nbsp;</h4>
+                                <h4 class="" data-bind="text: model.shipmentsController.shipment.total().toFixed(2)"></h4>
+                            </div>
+                        </div>
+                    </form>
+                
+                </div>
+
+                <ul class="nav nav-tabs">
+                    <li data-bind="css: (model.shipmentsController.currentStep() === 2 ? 'active' : '')">
+                        <a href="#" data-bind="click: model.shipmentsController.step.bind(this,2)">Information</a></li>
+                    <li data-bind="css: (model.shipmentsController.currentStep() === 3 ? 'active' : '')">
+                        <a href="#" data-bind="click: model.shipmentsController.step.bind(this,3)">Container</a></li>
+                    <li data-bind="css: (model.shipmentsController.currentStep() === 4 ? 'active' : '')">
+                        <a href="#" data-bind="click: model.shipmentsController.step.bind(this,4)">Attachments</a></li>
+                    <li data-bind="css: (model.shipmentsController.currentStep() === 5 ? 'active' : '')">
+                        <a href="#" data-bind="click: model.shipmentsController.step.bind(this,5)">Cost of shipments</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content visible">
+                    
+                    <div id="information" class="box"  data-bind="visible:  model.shipmentsController.currentStep() === 2">
+                        
+                            <form name="informationFrm" id="informationFrm">
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        <label for="type_container">Container Type<span class="text-danger"> *</span></label>
+                                        <select class="form-control" id="type_container" name="type_container" placeholder="type container"
+                                                data-bind="options: model.shipmentsController.containers, optionsText: 'descripcion', 
+                                                           optionsValue: 'service_typeId', value: service_typeId, 
+                                                           optionsCaption: 'Choose...'" data-error="errorTypeContainer" required>
+                                        </select>
+                                        <span class="errorTypeContainer text-danger help-inline"></span>
+                                    </div>
+                                    <div class="form-group col-sm-5">
+                                        <label for="shipping_term">Shipping Terms<span class="text-danger"> *</span></label>
+                                        <select class="form-control" 
+                                                data-bind="options: model.shipmentsController.incoterms, 
+                                                           optionsText: 'value',
+                                                           optionsValue: 'name', value: shipping_terms" required>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <label for="date_shipment">Date of Shipment<span class="text-danger"> *</span></label>
+                                        <input id="date_shipment" name="date_shipment" type="date" class="form-control" 
+                                               data-bind="datePicker: shipment_date, attr: { 'min': moment().format('YYYY-MM-DD') } "  
+                                               data-error="errorDateShipments" required>
+                                        <span class="errorDateShipment text-danger help-inline"></span>
+                                    </div>
+                                    <div class="form-group col-sm-9">
+                                        <label for="vendor_preferred">Preferred Vendors</label>
+                                        <input id="vendor_preferred" name="vendor_preferred" type="text" class="form-control" 
+                                               data-bind="value: preferred_vendor"
+                                               data-error="errorVendorPreferred" maxlength="100">
+                                        <span class="errorVendorPreferred text-danger help-inline"></span>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <label for="description_product">Description of Goods<span class="text-danger"> *</span></label>
+                                        <textarea id="description_product" name="description_product" type="text" rows="3" class="form-control" 
+                                                  data-bind="value: description"
+                                                  data-error="errorDescriptionProduct" minlength="3" maxlength="4000" required></textarea>
+                                        <span class="errorDescriptionProduct text-danger help-inline"></span>
+                                    </div>
+                                </div>
+                            </form>
+                       
+                    </div>
+                    <div id="container" class="box"  data-bind="visible:  model.shipmentsController.currentStep() === 3">
+                        
+                            <div class="row">
+                                <div class="col-md-12" data-bind="with: model.shipServicesController.shipservice">
+                                    
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#collapseUnit">Add Container</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseUnit" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <form name="containerFrm" id="containerFrm">
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="unitId">Unit<span class="text-danger"> *</span></label>
+                                                        <select id="unitId" class="form-control"
+                                                                data-bind="options: model.shipmentsController.services, 
+                                                                           optionsText: 'description', 
+                                                                           optionsValue: 'measure_unitId', 
+                                                                           value: measure_unitId,
+                                                                           enable: model.shipServicesController.insertMode" 
+                                                                           required></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label for="price">Confirmed Price USD<span class="text-danger"> *</span></label>
+                                                        <input id="confirmedprice" name="confirmedprice" class="form-control" type="number" data-bind="value: confirmed_unit_price" 
+                                                                data-error="errorConfirmedPrice" min="1" max="9999999.99" maxlength="10" minlength="1" step="0.01" required />
+                                                        <span class="errorConfirmedPrice text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="unitId">Quantity<span class="text-danger"> *</span></label>
+                                                        <input id="quantity" name="quantity" class="form-control" type="number" data-bind="value: quantity" 
+                                                               data-error="errorQuantity" min="1" max="999" maxlength="3" minlength="1" step="1" required />
+                                                        <span class="errorQuantity text-danger help-inline"></span>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        
+                                                        <a href="#" class="btn btn-info mybtn" style="margin: 1px;" data-bind="click: model.shipServicesController.save, visible: model.shipServicesController.insertMode"><i class="fa fa-plus-circle"></i> Save&nbsp;&nbsp;&nbsp;</a>
+                                                        <a href="#" class="btn btn-info mybtn" style="margin: 1px;" data-bind="click: model.shipServicesController.update, visible: model.shipServicesController.editMode"><i class="fa fa-pencil"></i> Save&nbsp;&nbsp;</a>
+                                                        <a href="#" class="btn btn-danger mybtn" style="margin: 1px;" data-bind="click:  model.shipServicesController.cancel"><i class="fa fa-undo"></i> Cancel</a>
+                                                        
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="ShipsGrid">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Unit</th>
+                                                        <th>Estimated Price USD</th>
+                                                        <th>Confirmed Price USD</th>
+                                                        <th>Quantity</th>
+                                                        <th>Total</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody data-bind="dataTablesForEach : {
+                                                                                        data: model.shipServicesController.shipservices, 
+                                                                                        options: dataTableOptions
+                                                                                    }">
+                                                    <tr>
+                                                        <td data-bind="text: description"></td>
+                                                        <td data-bind="text: Number(estimated_unit_price).toFixed(2)"></td>
+                                                        <td data-bind="text: (confirmed_unit_price * 1).toFixed(2)"></td>
+                                                        <td data-bind="text: quantity"></td>
+                                                        <td data-bind="text: (confirmed_unit_price * quantity).toFixed(2)"></td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.shipServicesController.edit"><i class="fa fa-pencil"></i></a>
+                                                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.shipServicesController.remove"><i class="fa fa-trash-o"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h4 class="pull-right" data-bind="text: model.shipmentsController.shipment.totalContainer().toFixed(2)"></h4>
+                                            <h4 class="pull-right">Total&nbsp;</h4>
+                                        </div>
+                                </div>
+                            </div>
+                            
+                            <h6 class="col-md-12">History-Last two Shipment</h6>
+                                <table id="historySnipGrid" class="table table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>PO#</th>
+                                            <th>Name Consignee</th>
+                                            <th>Shipment Date</th>
+                                            <th>Type Container</th>
+                                            <th>Total snipment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- ko foreach: {data: model.shipmentsController.shipmentsLastHisotry, as: 'history'} -->
+                                        <tr>
+                                            <td data-bind="text: history.purcharse_order"></td>
+                                            <td data-bind="text: history.consignee_name"></td>
+                                            <td data-bind="text: moment(history.shipment_date).format('MM/DD/YYYY')"></td>
+                                            <td data-bind="text: history.description"></td>
+                                            <td data-bind="text: total.toFixed(2)"></td>
+                                        </tr>
+                                        <!-- /ko -->
+                                    </tbody>
+                                </table>
+                       
+                    </div>
+                    <div id="files" class="box" data-bind="visible: model.shipmentsController.currentStep() === 4">
+                        <div class="content">
+                            <div class="table-responsive" data-bind="visible: model.shipFilesController.gridMode()">
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-success btn-sm" data-bind="click: model.shipFilesController.showNewFile"><i class="fa fa-plus-circle"></i> New</a>
+                                </div>
+                                <table id="notesGrid" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>User</th>
+                                            <th>Date Atachment</th>
+                                            <th>Description</th>
+                                            <th>File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="dataTablesForEach : {
+                                    data: model.shipFilesController.files,
+                                    options: {
+                                            deferRender: true,
+                                            paging: true,
+                                            searching: true,
+                                            pageLength: 10,
+                                            responsive: true,
+                                            bDestroy: true,
+                                            order: [[0, 'desc']],
+                                            dom: dataTableDom
+                                        }
+                                  }">
+                                        <tr>
+                                            <td data-bind="text: type"></td>
+                                            <td data-bind="text: username"></td>
+                                            <td data-bind="text: moment(creation_date).format('MM/DD/YYYY')"></td>
+                                            <td data-bind="text: description"></td>
+                                            <td><a href="#" target="_blank" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Download" data-bind="attr: {href: '../shipmentUpload/'+model.shipFilesController.shipment.customerId()+'/'+shipmentId+'/'+file_name}"><i class="fa fa-download"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <div data-bind="visible: (model.shipFilesController.insertMode())">
+
+                                <form name="filesEdit" id="filesEdit" class="form" data-bind="with: model.shipFilesController.shipfile">
+                                    <div class="row">
+                                        <div class="form-group col-sm-3 col-md-3">
+                                            <label for="note">Type</label>
+                                            <select class="form-control" id="type" placeholder="type"
+                                                    data-bind="options: model.shipFilesController.typesFiles, optionsText: 'type', optionsValue: 'file_typeId', value: file_typeId"
+                                                    data-error=".errorType"
+                                                    required></select>
+                                            <span class="errorType text-danger help-inline"></span>
+                                        </div>
+                                        <div class="form-group col-sm-6 col-md-6">
+                                            <label for="fileName">Document</label>
+                                            <input id="fileName" name="fileName" type="file" class="form-control" data-bind="value: file_name"
+                                                   data-error=".errorName" maxlength="50" required>
+                                            <span class="errorName text-danger help-inline"></span>
+                                        </div>
+                                        <div class="form-group col-sm-12 col-md-12">
+                                            <label for="description">Description</label>
+                                            <input id="description" name="Description" type="text" class="form-control" data-bind="value: description"
+                                                   data-error=".errorDescription" maxlength="50" required>
+                                            <span class="errorDescription text-danger help-inline"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="text-center">
+                                            <button type="button" class="btn btn-info mybtn" data-bind="click:  model.shipFilesController.save, visible: model.shipFilesController.insertMode "><i class="fa fa-save"></i> Save</button>
+                                            <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.shipFilesController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                                        </p>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="send" class="box"  data-bind="visible:  model.shipmentsController.currentStep() === 5">
+                        <div class="row">
+                            <div class="col-md-12" data-bind="with: model.shipCostController.shipcost">    
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#collapseCost">Add Cost</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseCost" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <form name="costsFrm" id="costsFrm">
+                                                <div class="form-group col-sm-3">
+                                                    <label for="typeCost">Type<span class="text-danger"> *</span></label>
+                                                    <select id="typeCost" name="typeCost" class="form-control"
+                                                            data-bind="options: model.shipmentsController.otherservices, 
+                                                                       optionsText: 'descripcion', 
+                                                                       optionsValue: 'service_typeId', value: service_typeId" required></select>
+                                                </div>
+                                                <div class="form-group col-sm-3">
+                                                    <label for="unitCost">Unit<span class="text-danger"> *</span></label>
+                                                    <select id="unitCost" name="unitCost" class="form-control"
+                                                            data-bind="options: model.shipmentsController.otherunits, 
+                                                                       optionsText: 'description', 
+                                                                       optionsValue: 'measure_unitId', 
+                                                                       value: measure_unitId" required></select>
+                                                </div>
+                                                <div class="form-group col-sm-2">
+                                                    <label for="price">Price<span class="text-danger"> *</span></label>
+                                                    <input id="price" name="price" class="form-control" type="number" data-bind="value: unit_price" 
+                                                            data-error="errorPrice" min="1" max="9999999.99" maxlength="10" minlength="1" step="0.01" required />
+                                                    <span class="errorPrice text-danger help-inline"></span>
+                                                </div>
+                                                <div class="form-group col-sm-2">
+                                                    <label for="unitId">Quantity<span class="text-danger"> *</span></label>
+                                                    <input id="quantityCost" name="quantityCost" class="form-control" type="number" data-bind="value: quantity" 
+                                                            data-error="errorQuantityCost" min="1" max="999" maxlength="3" minlength="1" step="1" required />
+                                                    <span class="errorQuantityCost text-danger help-inline"></span>
+                                                </div>
+
+                                                <div class="form-group col-sm-10">
+                                                    <label for="unitId">Vendor</label>
+                                                    <input id="vendor" name="vendor" class="form-control" type="text" data-bind="value: vendor"
+                                                           data-error="errorVendor"  maxlength="100" />
+                                                    <span class="errorVendor text-danger help-inline"></span>
+                                                </div>
+                                                <div class="form-group col-sm-2">
+                                                    <button type="button" class="btn btn-success mybtn" style="margin-top:25px;" data-bind="click: model.shipCostController.save"><i class="fa fa-plus-square"> Save</i></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+                                    
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="ShipsCostGrid">
+                                        <thead>
+                                            <tr>
+                                                <th>Type</th>
+                                                <th>Vendor</th>
+                                                <th>Unit</th>
+                                                <th>Price USD</th>
+                                                <th>Quantity</th>
+                                                <th>Total USD</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="dataTablesForEach : {
+                                                                                data: model.shipCostController.shipcosts, 
+                                                                                options: dataTableOptions
+                                                                            }">
+                                            <tr>
+                                                <td data-bind="text: service_description"></td>
+                                                <td data-bind="text: vendor"></td>
+                                                <td data-bind="text: description"></td>
+                                                <td data-bind="text: Number(unit_price).toFixed(2)"></td>
+                                                <td data-bind="text: quantity"></td>
+                                                <td data-bind="text: (unit_price * quantity).toFixed(2)"></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.shipCostController.remove"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-12">
+                                    <h4 class="pull-right" data-bind="text: model.shipmentsController.shipment.totalCosts().toFixed(2)"></h4>
+                                    <h4 class="pull-right">Total&nbsp;</h4>
+                                </div>    
+                            </div>
+                        </div>
+                            
+                    </div>
+
+                </div>
+
+                <div class="form-group text-center">
+                    
+                        <button type="button" class="btn btn-info mybtn" data-bind="click: model.shipmentsController.update, visible: model.shipmentsController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click: model.shipmentsController.save, visible: model.shipmentsController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click: model.shipmentsController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                        <!-- ko if: model.shipmentsController.shipment.status() === "P" -->
+                                <button type="button" class="btn btn-success mybtn" data-bind="click: model.shipmentsController.quote"><i class="fa fa-send"></i> Quote</button>
+                        <!-- /ko -->
+                    
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+
+<div class="content" data-bind="visible: model.shipmentsController.gridMode()">
+
+    <div class="box teal-lighten-5" >
+        <h3>Shipments in Process</h3>
+        <hr />
+        
+        <div class="table-responsive" >
+            <table id="shipmentsPendingGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>PO#</th>
+                        <th>Name Consignee</th>
+                        <th>Receiving Company</th>
+                        <th>Date Shipments</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.shipmentsController.shipmentsPending, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: purcharse_order" width="10%"></td>
+                        <td data-bind="text: consignee_name"></td>
+                        <td data-bind="text: target_company"></td>
+                        <td data-bind="text: moment(shipment_date).format('MM/DD/YYYY')"></td>
+                        <td><span class="label" data-bind="text: (status === 'Q' ? 'Quoted' : (status === 'P' ? 'Sent' : '')), css: (status === 'Q' ? 'label-info' : 'label-default')"></span></td>
+                        <td width="17%">
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.shipmentsController.editShipment"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Add notes" data-bind="attr: { href: '/Admin/Notes?shipmentId=' + shipmentId }"><i class="fa fa-sticky-note-o"></i></a>
+                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Add files" data-bind="attr: { href: '/Admin/Files?shipmentId=' + shipmentId }"><i class="fa fa-file-text-o"></i></a>
+                            <a href="#" class="btn btn-xs bg-info" data-toggle="tooltip" data-placement="top" title="View" data-bind="attr: { href: '/Admin/ViewShipment?shipmentId=' + shipmentId }"><i class="fa fa-eye-slash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="content" data-bind="visible: model.shipmentsController.gridMode()">
+
+    <div class="box teal-lighten-4">
+        <h3>Shipments in Transit</h3>
+        <hr />
+        <div class="table-responsive">
+            <table id="shipmentsProcessGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>PO#</th>
+                        <th>Name Consignee</th>
+                        <th>Receiving Company</th>
+                        <th>Date Shipments</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody  data-bind="dataTablesForEach : {
+                                    data: model.shipmentsController.shipmentsProcess, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: purcharse_order" width="10%"></td>
+                        <td data-bind="text: consignee_name"></td>
+                        <td data-bind="text: target_company"></td>
+                        <td data-bind="text: moment(shipment_date).format('MM/DD/YYYY')"></td>
+                        <td><span class="label" data-bind="text: (status === 'A' ? 'Process' : ''), css: (status === 'A' ? 'label-success' : '')"></span></td>
+                        <td width="17%">
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.shipmentsController.editShipment"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="Add notes" data-bind="attr: { href: '/Admin/Notes?shipmentId=' + shipmentId }"><i class="fa fa-sticky-note-o"></i></a>
+                            <a href="#" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="top" title="Add files" data-bind="attr: { href: '/Admin/Files?shipmentId=' + shipmentId }"><i class="fa fa-file-text-o"></i></a>
+                            <a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Cancel Shipment" data-bind="attr: { href: '/Admin/CancelShipment?shipmentId=' + shipmentId }"><i class="fa fa-thumbs-o-down"></i></a>
+                            <a href="#" class="btn btn-xs bg-warning" data-toggle="tooltip" data-placement="top" title="Tracking" data-bind="attr: { href: '/Admin/shipmentTracking?shipmentId=' + shipmentId }"><i class="fa fa-thumb-tack"></i></a>
+                            <a href="#" class="btn btn-xs bg-warning" data-toggle="tooltip" data-placement="top" title="Delivery" data-bind="attr: { href: '/Admin/DeliveryShipment?shipmentId=' + shipmentId }"><i class="fa fa-truck"></i></a>
+                            <a href="#" class="btn btn-xs bg-info" data-toggle="tooltip" data-placement="top" title="View" data-bind="attr: { href: '/Admin/ViewShipment?shipmentId=' + shipmentId }"><i class="fa fa-eye-slash"></i></a>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="content" data-bind="visible: model.shipmentsController.gridMode()">
+
+    <div class="box teal-lighten-3" >
+        <h3>Shipments History</h3>
+        <hr />
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapseHistoryDateRange">Change date range</a>
+                </h4>
+            </div>
+            <div id="collapseHistoryDateRange" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form id="historyDateRangeFrm" name="historyDateRangeFrm">
+                        <div  class="col-sm-3 col-md-3">
+                            <label>From</label>
+                            <input id="historyDateFrom" name="historyDateFrom" type="date" class="form-control" 
+                                data-bind="datePicker: model.shipmentsController.historyDateFrom, attr: { 'max': moment(model.shipmentsController.historyDateTo()).format('YYYY-MM-DD') } "  
+                                data-error=".errorHistoryDateFrom" required>
+                            <span class="errorHistoryDateFrom text-danger help-inline"></span>    
+                        </div>
+                        <div  class="col-sm-3 col-md-3">
+                            <label>To</label>
+                            <input id="historyDateTo" name="historyDateTo" type="date" class="form-control" 
+                                data-bind="datePicker: model.shipmentsController.historyDateTo, attr: { 'min': moment(model.shipmentsController.historyDateFrom()).format('YYYY-MM-DD') } "  
+                                data-error=".errorHistoryDateTo" required>
+                            <span class="errorHistoryDateTo text-danger help-inline"></span>           
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <a href="#collapseHistoryDateRange" class="btn btn-info mybtn" style="margin: 1px; margin-top:25px;" data-toggle="collapse" data-bind="click: model.shipmentsController.refreshHistory"><i class="fa fa-refresh"></i> Reload</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="shipmentsHistoryGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>PO#</th>
+                        <th>Name Consignee</th>
+                        <th>Receiving Company</th>
+                        <th>Date Shipments</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.shipmentsController.shipmentsHistory, 
+                                    options: dataTableOptions
+                                  }">
+                   <tr>
+                       <td data-bind="text: purcharse_order" width="10%"></td>
+                       <td data-bind="text: consignee_name"></td>
+                       <td data-bind="text: target_company"></td>
+                       <td data-bind="text: moment(shipment_date).format('MM/DD/YYYY')"></td>
+                        <td><span class="label label-default" data-bind="text: (status === 'R' ? 'Rejected' : (status === 'C' ? 'Cancelled' : 'Delivered'))"></span></td>
+                        <td width="17%">
+                            <a href="#" class="btn btn-xs bg-info" data-toggle="tooltip" data-placement="top" title="View" data-bind="attr: { href: '/Admin/ViewShipment?shipmentId=' + shipmentId }"><i class="fa fa-eye-slash"></i></a>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+        $(document).ready(function () {
+
+           model.shipmentsController.initialize();
+            
+        });
+</script>
+
+
+

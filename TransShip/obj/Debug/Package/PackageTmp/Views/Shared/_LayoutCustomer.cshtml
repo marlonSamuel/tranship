@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+    <title>@ViewData["Title"] - TransShip</title>
+    <meta name="keywords" content="">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/cf663153b8.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/datatables/datatables.min.css" rel="stylesheet" /><link href="~/Content/datatables/datatables.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/owl.theme.css" rel="stylesheet" />
+    <link href="~/Content/style.default.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <script src="~/Scripts/waypoints.min.js"></script>
+    <script src="~/Scripts/modernizr.js"></script>
+    <script src="~/Scripts/bootstrap-hover-dropdown.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+    <script src="~/Scripts/knockout.mapping.js"></script>
+    <script src="~/Content/datatables/datatables.min.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <script src="~/Scripts/underscore-min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/numeral.min.js"></script>
+    <script src="~/Content/custom/model.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/blockUI.js"></script>
+</head>
+
+<body>
+
+    <script src="~/Content/custom/recurringaddresses.js"></script>
+    <script src="~/Content/custom/users.js"></script>
+    <script src="~/Content/custom/changepassword.js"></script>
+    <script src="~/Content/custom/billing.js"></script>
+    <script src="~/Content/custom/contact.js"></script>
+    <script src="~/Content/custom/states.js"></script>
+    <script src="~/Content/custom/countries.js"></script>
+    <script src="~/Content/custom/shipments.js"></script>
+    <script src="~/Content/custom/shipmentservices.js"></script>
+    <!-- approve customer -->
+    <script src="~/Content/custom/register.js"></script>
+
+    <script src="~/Content/custom/notes.js"></script>
+    <script src="~/Content/custom/files.js"></script>
+    <script src="~/Content/custom/approve.js"></script>
+
+    <script src="~/Content/custom/tracking.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.blockUI(blockUIoptions);
+            console.log("applyBindings");
+            ko.applyBindings();
+
+            model.usersController.editUser("@User.Identity.Name");
+            $.unblockUI();
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+                <ul class="menu">
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        
+                        <li>
+                            <span style="color: white;"><i class="glyphicon glyphicon-user"></i> @User.Identity.Name</span>
+                        </li>
+                        <li>
+                            @Html.ActionLink("Log Out", "LogOff", "Home")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                        </li>
+                        <li>
+                           @Html.ActionLink("Register", "Register", "Home")
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+
+        
+
+        
+        
+
+    </div>
+
+    <!-- *** TOP BAR END *** -->
+    <!-- *** NAVBAR ***
+    _________________________________________________________ -->
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand home" href="/" data-animate-hover="bounce">
+                    <img src="~/images/TransShipLogo.png" alt="Transship" class="hidden-xs" style="max-width: 250px; margin-top: +10px;">
+                    <img src="~/images/TransShipLogo.png" alt="Transship" class="visible-xs" style="max-width: 250px; margin-top: +10px;"><span class="sr-only">Transship - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                   
+                </div>
+            </div>
+            <!--/.navbar-header -->
+
+            
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+
+    <script src="~/Content/custom/scripts.js" asp-append-version="true"></script>
+
+    <div id="all">
+
+        <div id="content">
+            <!-- lateral menu -->
+            <div class="col-sm-3">
+                
+                @if (Request.IsAuthenticated)
+                {
+                <div class="panel panel-default sidebar-menu">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">My Account</h3>
+                    </div>
+                    <div class="panel-body">
+                        
+                        <ul class="nav nav-pills nav-stacked category-menu">
+                            <li data-bind="visible: model.usersController.validateRol() === 'A'">
+                                <span style="color:#4fbfa8;text-transform: uppercase;font-weight: bold;margin-left: 15px;">Profile</span>
+                                <ul>
+                                    <li>@Html.ActionLink("Edit Profile", "EditProfile", "Customer")</li>
+                                    <li>@Html.ActionLink("Contacts", "Contact", "Customer")</li>
+                                    <li>@Html.ActionLink("Users", "editUsers", "Customer")</li>
+                                    <li>@Html.ActionLink("Address List", "Address", "Customer")</li>
+                                    <li>@Html.ActionLink("Change Password", "changePass", "Customer")</li>
+                                    <li>@Html.ActionLink("Billing", "billing", "Customer")</li>
+                                </ul>
+                            </li>
+                            <li data-bind="visible: model.usersController.validateRol() === 'O'">
+                                <span style="color:#4fbfa8;text-transform: uppercase;font-weight: bold;margin-left: 15px;">Profile</span>
+                                <ul>
+                                    <li>@Html.ActionLink("Change Password", "changePass", "Customer")</li>
+                                </ul>
+                            </li>
+                            <li>@Html.ActionLink("Shipments", "Shipments", "Customer")</li>
+                        </ul>
+                    </div>
+                </div>
+                }
+                
+            </div>
+            <!-- /lateral menu -->
+
+            <!-- #content -->
+            <div class="col-sm-9">
+                @RenderBody()
+            </div>
+        </div><!-- /#content -->
+        <!-- *** FOOTER ***
+        _________________________________________________________ -->
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    
+                    
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#footer -->
+        <!-- *** FOOTER END *** -->
+        <!-- *** COPYRIGHT ***
+        _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2017 Transship</p>
+
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">
+                        <!--
+                        Template by <a href="http://bootstrapious.com/e-commerce-templates">Bootstrapious</a> with support from <a href="https://kakusei.cz">Kakusei</a>
+                         Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+    </div>
+
+
+
+</body>
+</html>

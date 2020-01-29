@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Change Password";
+}
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Change Password</h1>
+        <hr />
+
+        <div>
+
+            <form name="passEdit" id="passEdit" class="form" data-bind="with: model.passController.pass">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group col-sm-6 col-md-6">
+                            <label for="full_name">Current Password<span class="text-danger"> *</span></label>
+                            <input id="full_name" name="password" type="password" class="form-control" data-bind="value: password"
+                               data-error=".errorPass" required>
+                            <label class="errorPass text-danger help-inline"></label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group col-sm-3 col-md-3">
+                            <label for="keyinformation">New Password<span class="text-danger"> *</span></label>
+                            <input type="password" data-bind="value: newPass, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" id="keyinformation" name="keyinformation" placeholder="Password"
+                               data-error=".newPass" 
+                               minlength="8" maxlength="20" required>
+                            <label class="newPass text-danger help-inline"></label>
+                        </div>
+                        <div class="form-group col-sm-3 col-md-3">
+                            <label for="confirmkey">Confirm Password<span class="text-danger"> *</span></label>
+                            <input type="password" data-bind="value: confirmPassword, valueUpdate:['afterkeydown','propertychange','input']" class="form-control" id="confirmkey" name="confirmkey" placeholder="Password"
+                               data-error=".confirm" 
+                               minlength="8" maxlength="20" required>
+                            <label class="confirm text-danger help-inline"></label>
+                        </div>
+                        <div class="form-group col-sm-2 col-md-3">
+                            <br />
+                            <i class="fa fa-2x" data-bind="css: (newPass() !== '' && newPass() === confirmPassword() ? 'fa-check text-success' : 'fa-ban text-danger')"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="text-center">
+                            <button type="button" class="btn btn-info mybtn" data-bind="click:  model.passController.update"><i class="fa fa-save"></i> Save</button>
+                            <a class="btn btn-danger mybtn" href="@Url.Action("Shipments","Admin")"><i class="fa fa-undo"> Cancel</i></a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+

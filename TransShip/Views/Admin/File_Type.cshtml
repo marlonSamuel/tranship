@@ -1,0 +1,90 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "File_Type";
+}
+
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Attachment Type</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.filesController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn" data-bind="click: model.filesController.showNewFile"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="filesGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.filesController.files, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: type"></td>
+                        <td data-bind="text: description"></td>
+                        <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.filesController.editFile"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.filesController.removeFile"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.filesController.editMode() || model.filesController.insertMode())">
+
+            <form name="FileEdit" id="FileEdit" class="form" data-bind="with: model.filesController.file">
+                <div class="row">
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="type">Type<span class="text-danger"> *</span></label>
+                        <input id="type" type="text" name="type" class="form-control" data-bind="value: type  "
+                               data-error=".errorType"
+                               minlength="3" maxlength="20" required>
+                        <span class="errorType text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-7 col-md-7">
+                        <label for="description">Description<span class="text-danger"> *</span></label>
+                        <input id="description" name="description" type="text" class="form-control" data-bind="value: description  "
+                               data-error=".errorDescription"
+                               minlength="3" maxlength="50" required>
+                        <span class="errorDescription text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="status">Status<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="status" data-bind="options: model.filesController.statusOptions, optionsText: 'name', optionsValue: 'value', value: status">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.filesController.update, visible: model.filesController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.filesController.save, visible: model.filesController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.filesController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+
+          model.filesController.initialize();
+            
+        });
+</script>
+
+
+
+

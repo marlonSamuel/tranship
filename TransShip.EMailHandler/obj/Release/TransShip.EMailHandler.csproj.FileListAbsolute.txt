@@ -1,0 +1,20 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Release\TransShip.EMailHandler.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Release\TransShip.EMailHandler.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Release\NLog.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Release\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Release\TransShip.LogBook.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Release\NLog.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.pdb
+C:\transship\TransShip\TransShip.EMailHandler\bin\Release\TransShip.EMailHandler.dll
+C:\transship\TransShip\TransShip.EMailHandler\bin\Release\TransShip.EMailHandler.pdb
+C:\transship\TransShip\TransShip.EMailHandler\bin\Release\NLog.dll
+C:\transship\TransShip\TransShip.EMailHandler\bin\Release\TransShip.LogBook.dll
+C:\transship\TransShip\TransShip.EMailHandler\bin\Release\TransShip.LogBook.pdb
+C:\transship\TransShip\TransShip.EMailHandler\bin\Release\NLog.xml
+C:\transship\TransShip\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.csprojResolveAssemblyReference.cache
+C:\transship\TransShip\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.csproj.CoreCompileInputs.cache
+C:\transship\TransShip\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.dll
+C:\transship\TransShip\TransShip.EMailHandler\obj\Release\TransShip.EMailHandler.pdb

@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Delivery Shipment";
+}
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <div class="pull-right">
+            <a class="btn btn-danger btn-sm" href="@Url.Action("Shipments","Admin")"><i class="fa fa-undo"> Return</i></a>
+        </div>
+        <h1>Delivery Shipment</h1>
+        <hr />
+        <div class="row" data-bind="with: model.approveController.customer">
+            <div class="col-sm-1"><label>Company Name: </label></div>
+            <div class="col-sm-6"><h6 data-bind="text: company_name"></h6></div>
+            <div class="col-sm-1"><label>Shipment Number:</label></div>
+            <div class="col-sm-1"><h4 class="text-primary" data-bind="text: model.approveController.shipment.shipmentId"></h4></div>
+            <div class="col-sm-2">
+                <img style="width:200px; height:100px;" data-bind="attr:{src: '../Logos/'+customerId()+'/'+logo()}" />
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h2>Shipment Information</h2>
+        </div>
+
+        <div class="content">
+            <div class="table-responsive">
+                <table id="shipGrid" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name Consignee</th>
+                            <th>Receiving Company</th>
+                            <th>Vendor</th>
+                            <th>Date Shipments</th>
+                            <th>Estimated Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Last Track</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="with: model.notesController.shipment">
+                        <tr>
+                            <td data-bind="text: consignee_name"></td>
+                            <td data-bind="text: target_company"></td>
+                            <td data-bind="text: model.trackingController.vendorName"></td>
+                            <td data-bind="text: moment(shipment_date()).format('MM/DD/YYYY')"></td>
+                            <td data-bind="text: moment(estimated_delivery_date()).format('MM/DD/YYYY')"></td>
+                            <td data-bind="text: (typeof model.approveController.shipCost.total() === 'number' ? model.approveController.shipCost.total().toFixed(2) : 0)"></td>
+                            <td><span class="label label-primary" data-bind="text: (status() === 'N' ? 'Saved' : (status() === 'P' ? 'Pending Quote' : (status() === 'Q' ? 'Quoted' : (status() === 'A' ? 'Approved' : (status() === 'R' ? 'Rejected' : (status() === 'C' ? 'Cancelled' : 'Delivery' ))))))"></span></td>
+                            <td data-bind="text: (moment(current_tracking_date()).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(current_tracking_date()).format('MM/DD/YYYY'))"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <hr style="height:2px; border-width:2px;" color="#585858" />
+        <div>
+            <h4>Container Costs</h4>
+        </div>
+        <div class="table-responsive">
+            
+            <table id="approveGrid" class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: {data: model.approveController.shipServiceCosts, as: 'shipService'}">
+                    <tr>
+                        <td data-bind="text: shipService.type"></td>
+                        <td data-bind="text: shipService.description"></td>
+                        <td data-bind="text: shipService.quantity"></td>
+                        <td data-bind="text: (typeof shipService.confirmed_unit_price === 'number' ? numeral(shipService.confirmed_unit_price).format('0,0.00') : '')"></td>
+                        <td data-bind="text: (typeof shipService.totalbyreg === 'number' ? numeral(shipService.totalbyreg).format('0,0.00') : '')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="table-responsive">
+            <h4>Shipment Costs</h4>
+            <table id="approveGrid2" class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: {data: model.approveController.shipCosts, as: 'shipCost'}">
+                    <tr>
+                        <td data-bind="text: shipCost.type"></td>
+                        <td data-bind="text: shipCost.description"></td>
+                        <td data-bind="text: shipCost.quantity"></td>
+                        <td data-bind="text: (typeof shipCost.unit_price === 'number' ? numeral(shipCost.unit_price).format('0,0.00') : '')"></td>
+                        <td data-bind="text: (typeof shipCost.totalbyreg === 'number' ? numeral(shipCost.totalbyreg).format('0,0.00') : '')"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <h4 class="pull-right" data-bind="text:  (typeof model.approveController.shipCost.totalServices() === 'number' ? numeral(model.approveController.shipCost.totalServices()).format('0,0.00') : '0.00')"></h4>
+            <h4 class="pull-right">Total Container Costs&nbsp;</h4>
+        </div>
+        <div class="col-sm-12">
+            <h4 class="pull-right" data-bind="text: model.approveController.shipCost.totalCosts"></h4>
+            <h4 class="pull-right">Total Shipment Costs&nbsp;</h4>
+        </div>
+        <div class="col-sm-12">
+            <h4 class="pull-right" data-bind="text: (typeof model.approveController.shipCost.totalCosts() === 'number' ? numeral(model.approveController.shipCost.totalCosts()).format('0,0.00') : '0.00')"></h4>
+            <h4 class="pull-right">Total&nbsp;</h4>
+        </div>
+        <div class="form-group">
+            
+            <p class="text-center">
+                <button type="button" class="btn btn-success"  data-bind="click: model.approveController.delivery"> Delivery Shipment</button>
+                @*<a type="button" class="btn btn-default" href="@Url.Action("Shipments","Admin")"> Return</a>*@
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+        $(document).ready(function () {
+             model.notesController.initialize(@ViewData["shipmentId"]);
+            model.approveController.initialize(@ViewData["shipmentId"],"Admin");
+
+        });
+</script>
+

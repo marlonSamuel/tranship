@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    ViewBag.Title = "billing";
+}
+
+<div class="content">
+
+    <div class="box" id="countriesBox">
+        <h3>Billing</h3>
+        <hr />
+        <!--MEMBER HISTORY LEVELS -->
+        <div class="table-responsive" data-bind="visible: model.billingController.gridMode()">
+            <table id="billingGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Payment day</th>
+                        <th>Begin</th>
+                        <th>Finish</th>
+                        <th>Membership Level</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.billingController.billings, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: moment(payment_date).format('MM/DD/YYYY')"></td>
+                        <td data-bind="text: moment(initial_date).format('MM/DD/YYYY')"></td>
+                        <td data-bind="text: moment(final_date).format('MM/DD/YYYY')"></td>
+                        <td data-bind="text: description"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+

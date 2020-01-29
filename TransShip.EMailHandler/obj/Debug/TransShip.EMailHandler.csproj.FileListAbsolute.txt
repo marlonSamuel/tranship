@@ -1,0 +1,20 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Debug\TransShip.EMailHandler.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Debug\TransShip.EMailHandler.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Debug\NLog.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Debug\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Debug\TransShip.LogBook.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\bin\Debug\NLog.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.pdb
+C:\TransShip\transship\TransShip.EMailHandler\bin\Debug\TransShip.EMailHandler.dll
+C:\TransShip\transship\TransShip.EMailHandler\bin\Debug\TransShip.EMailHandler.pdb
+C:\TransShip\transship\TransShip.EMailHandler\bin\Debug\NLog.dll
+C:\TransShip\transship\TransShip.EMailHandler\bin\Debug\TransShip.LogBook.dll
+C:\TransShip\transship\TransShip.EMailHandler\bin\Debug\TransShip.LogBook.pdb
+C:\TransShip\transship\TransShip.EMailHandler\bin\Debug\NLog.xml
+C:\TransShip\transship\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.csprojResolveAssemblyReference.cache
+C:\TransShip\transship\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.csproj.CoreCompileInputs.cache
+C:\TransShip\transship\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.dll
+C:\TransShip\transship\TransShip.EMailHandler\obj\Debug\TransShip.EMailHandler.pdb

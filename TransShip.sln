@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransShipModel", "TransShipModel\TransShipModel.csproj", "{01240FE4-0EC9-484A-BD0C-93BCBD8D3C28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransShip", "TransShip\TransShip.csproj", "{0F942FAE-2F67-4C87-9FF9-06CB5247677C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransShip.LogBook", "TransShip.LogBook\TransShip.LogBook.csproj", "{6E06B7B6-78FC-4547-B178-2C99FFB0CDDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransShip.Security", "TransShip.Security\TransShip.Security.csproj", "{FC7CEF9B-402C-41A5-9CA5-3E49B138216F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransShip.EMailHandler", "TransShip.EMailHandler\TransShip.EMailHandler.csproj", "{A8935F52-3B62-4082-BFF0-7E9C3FA57775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransShipBO", "TransShipBO\TransShipBO.csproj", "{404C4255-FE28-4341-9679-F16F65A9889C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01240FE4-0EC9-484A-BD0C-93BCBD8D3C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01240FE4-0EC9-484A-BD0C-93BCBD8D3C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01240FE4-0EC9-484A-BD0C-93BCBD8D3C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01240FE4-0EC9-484A-BD0C-93BCBD8D3C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F942FAE-2F67-4C87-9FF9-06CB5247677C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F942FAE-2F67-4C87-9FF9-06CB5247677C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F942FAE-2F67-4C87-9FF9-06CB5247677C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F942FAE-2F67-4C87-9FF9-06CB5247677C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E06B7B6-78FC-4547-B178-2C99FFB0CDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E06B7B6-78FC-4547-B178-2C99FFB0CDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E06B7B6-78FC-4547-B178-2C99FFB0CDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E06B7B6-78FC-4547-B178-2C99FFB0CDDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7CEF9B-402C-41A5-9CA5-3E49B138216F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7CEF9B-402C-41A5-9CA5-3E49B138216F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7CEF9B-402C-41A5-9CA5-3E49B138216F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7CEF9B-402C-41A5-9CA5-3E49B138216F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8935F52-3B62-4082-BFF0-7E9C3FA57775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8935F52-3B62-4082-BFF0-7E9C3FA57775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8935F52-3B62-4082-BFF0-7E9C3FA57775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8935F52-3B62-4082-BFF0-7E9C3FA57775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404C4255-FE28-4341-9679-F16F65A9889C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404C4255-FE28-4341-9679-F16F65A9889C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404C4255-FE28-4341-9679-F16F65A9889C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404C4255-FE28-4341-9679-F16F65A9889C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE10670B-1E1F-4DE8-AFB1-CE0935E82D11}
+	EndGlobalSection
+EndGlobal

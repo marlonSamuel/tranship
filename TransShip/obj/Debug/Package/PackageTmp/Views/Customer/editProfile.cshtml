@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+
+    ViewBag.Title = "editProfile";
+}
+
+<div class="content">
+    <div class="box" id="usersBox">
+        <h1>Edit Profile - @User.Identity.Name</h1>
+        <hr />
+
+        <div data-bind="visible: model.usersController.editMode(true)">
+
+            <form name="editProfile" id="editProfile">
+                <div class="row" data-bind="with: model.usersController.user">
+                    <div class="form-group col-md-6">
+                        <label for="company_name">Company Name<span class="text-danger"> *</span></label>
+                        <input id="company_name" type="text" class="form-control validate" 
+                               data-error=".errorCompanyName" data-bind="value: company_name" 
+                               minlength="5" maxlength="100" required>
+                        <span class="errorCompanyName text-danger help-inline"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="logo">Logo</label><br />
+                        <img id="previewLogo" style="width:200px; height:100px;" data-bind="attr:{src: '../Logos/'+customerId()+'/'+logo()}" />
+                        <label>select a new logo<input type="checkbox" style="margin-left:10px;" data-bind="checked: model.usersController.isVisible" /></label>
+                        <!-- ko if: model.usersController.isVisible -->
+                        <input id="logo" name="logo" type="file" class="form-control" data-bind="event:{ change: model.usersController.PreviewImage}" 
+                               data-error=".errorLogo">
+                        <label class="errorLogo text-danger help-inline"></label>
+                        <!-- /ko -->
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="address1">Address One<span class="text-danger"> *</span> </label>
+                        <input id="address1" name="address1" type="text" class="form-control validate" data-bind="value: address1" 
+                               data-error=".errorAddressOne"
+                               minlength="3" maxlength="250" required>
+                        <span class="errorAddressOne text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="address2">Address Two</label>
+                        <input id="address2" name="addrestwo" type="text" class="form-control" data-bind="value: address2" 
+                               data-error=".errorAddressTwo"
+                               minlength="3" maxlength="250">
+                        <label class="errorAddressTwo text-danger help-inline"></label>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                         <label>Postal Code</label>
+                        <label for="zipcode" data-bind="text: (model.usersController.mandatoryZipcode() === true ? ' *' : ''), css: (model.usersController.mandatoryZipcode() === true ? 'text-danger' : 'text-default')"></label>
+                        <input type="number" min="0"
+                               data-bind="value: zipcode, attr: { required: model.usersController.mandatoryZipcode}"
+                               class="form-control validate" 
+                               data-error=".errorZipcode"  
+                               maxlength="5" id="zipcode" name="zipcode" placeholder="Postal Code">
+                        <label class="errorZipcode text-danger help-inline"></label>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="country">Country<span class="text-danger"> *</span></label>
+                        <select class="form-control" name="country" id="country" placeholder="Country"
+                                data-bind="options: model.usersController.countries, optionsText: 'CountryName', optionsValue: 'CountryID', value: countryId, event : {change : model.usersController.countryChange}"
+                                data-error=".errorCountry" required></select>
+                        <label class="errorCountry text-danger help-inline"></label>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="state">State<span class="text-danger"> *</span></label>
+                        <input type="text" name="state" class="form-control validate" id="state" placeholder="State" data-bind="value: state, visible: model.usersController.validateState() === false" 
+                                data-error=".errorState"
+                                maxlength="50" required>
+                        <span class="errorState text-danger help-inline"></span>
+                        <select class="form-control" id="stateOf" placeholder="State" data-bind="options: model.usersController.states, optionsText: 'name', optionsValue: 'name', value: stateText, visible: model.usersController.validateState" 
+                                data-error=".errorState"
+                                maxlength="50" required></select>
+                        <label class="errorState text-danger help-inline"></label>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text" class="form-control" data-bind="value: city" data-error=".errorCity"
+                               minlength="2" maxlength="50">
+                        <label class="errorCity text-danger help-inline"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.usersController.updateProfile, visible: model.usersController.editMode(true)"><i class="fa fa-save"></i> Save</button>
+                        <a class="btn btn-danger mybtn" href="@Url.Action("Customer","Customer")"><i class="fa fa-undo"> Cancel</i></a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+

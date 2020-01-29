@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    ViewBag.Title = "Contact";
+}
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Contacts</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.contactsController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn" data-bind="click: model.contactsController.showNewContact"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="contactsGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Title</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.contactsController.contacts, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: full_name"></td>
+                        <td data-bind="text: title"></td>
+                        <td data-bind="text: phone_number"></td>
+                        <td data-bind="text: email"></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.contactsController.editContact"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.contactsController.removeContact"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.contactsController.editMode() || model.contactsController.insertMode())">
+
+            <form id="ContactEdit" name="ContactEdit" >
+                <div class="row" data-bind="with: model.contactsController.contact">
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="full_name">Full Name<span class="text-danger"> *</span></label>
+                        <input  type="text" name="full_name" class="form-control validate"  
+                               data-error=".errorFullName" data-bind="value: full_name"
+                               id="full_name" minlength="3" maxlength="50" required>
+                        <label class="errorFullName text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="title">Title<span class="text-danger"> *</span></label>
+                        <input type="text" name="title" class="form-control validate" 
+                               data-error=".errorTitle" data-bind="value: title" 
+                               id="title" minlength="3" maxlength="25" required>
+                        <label class="errorTitle text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="email">Email<span class="text-danger"> *</span></label>
+                        <input id="email" name="email" type="email" class="form-control" data-bind="value: email"
+                               data-error=".errorEmail"
+                               minlength="3" maxlength="50" required>
+                        <label class="errorEmail text-danger help-inline"></label>
+                    </div>
+                    <div class="form-group col-sm-3 col-md-3">
+                        <label for="phone_number">Phone Number<span class="text-danger"> *</span></label>
+                        <input id="phone_number" name="phone_number" type="number" pattern="[0-9]" class="form-control" 
+                               data-bind="value: phone_number" data-error=".errorPhoneNumber"
+                               minlength="3" maxlength="20" required>
+                        <label class="errorPhoneNumber text-danger help-inline"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.contactsController.update, visible: model.contactsController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-warning mybtn" data-bind="click:  model.contactsController.save, visible: model.contactsController.insertMode "><i class="fa fa-save"></i> Edit</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.contactsController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Countrie";
+}
+
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Countries</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.countriesController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn" data-bind="click: model.countriesController.showNewCountry"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="countriesGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Country Name</th>
+                        <th>Currency</th>
+                        <th>Currency Symbol</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.countriesController.countries, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: CountryName"></td>
+                        <td data-bind="text: currency"></td>
+                        <td data-bind="text: currencySymbol"></td>
+                        <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.countriesController.editCountry"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.countriesController.removeCountry"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.countriesController.editMode() || model.countriesController.insertMode())">
+
+            <form name="CountryEdit" id="CountryEdit" class="form" data-bind="with: model.countriesController.country">
+                <div class="row">
+                    @*<div class="form-group col-sm-3 col-md-3">
+                        <label for="ISO02">ISO02</label>
+                        <input id="ISO02" type="text" class="form-control" data-bind="value: ISO2  ">
+                    </div>*@
+
+                    <div class="form-group col-sm-6">
+                        <label for="countryName">Country Name<span class="text-danger"> *</span></label>
+                        <input id="countryName" name="CountryName" type="text" class="form-control" data-bind="value: CountryName"
+                               data-error=".errorCountry"
+                               minlength="3" maxlength="80" required>
+                        <span class="errorCountry text-danger help-inline"></span>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label for="LongCountryName">Long Country Name<span class="text-danger"> *</span></label>
+                        <input id="LongCountryName" name="LongCountryName" type="text" class="form-control" data-bind="value: LongCountryName"
+                               data-error=".errorLong"
+                               minlength="3" maxlength="80" required>
+                        <span class="errorLong text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="currency">Currency</label>
+                        <input id="currency" name="currency" type="text" class="form-control" data-bind="value: currency"
+                               data-error=".errorCurrency"
+                               minlength="3" maxlength="20">
+                        <span class="errorCurrency text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="currencySymbol">Currency Symbol</label>
+                        <input id="currencySymbol" name="currencySymbol" type="text" class="form-control" data-bind="value: currencySymbol"
+                               data-error=".errorSimbol" maxlength="5">
+                        <span class="errorSimbol text-danger help-inline"></span>
+                    </div>
+                
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="status">Status<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="status" data-bind="options: model.countriesController.statusOptions, optionsText: 'name', optionsValue: 'value', value: status"></select>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="status">Validate state<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="validateState" data-bind="options: model.countriesController.validateStateOptions, optionsText: 'name', optionsValue: 'value', value: validate_state"></select>
+                    </div>
+                    <div class="form-group col-sm-3 col-md-3">
+                        <label for="status">Mandatory zip code<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="mandatoryZipcode" data-bind="options: model.countriesController.mandatoryZipcodeOptions, optionsText: 'name', optionsValue: 'value', value: mandatory_zipcode"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.countriesController.update, visible: model.countriesController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.countriesController.save, visible: model.countriesController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.countriesController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="content" data-bind="visible: model.statesController.viewUnit()">
+    <div class="box" id="state">
+        <h3>States</h3>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.statesController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn" data-bind="click: model.statesController.showNewState"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="StatesGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>StateId</th>
+                        <th>State</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.statesController.states, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: stateId"></td>
+                        <td data-bind="text: name"></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.statesController.editState"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.statesController.removeState"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.statesController.editMode() || model.statesController.insertMode())">
+
+            <form name="StateEdit" id="StateEdit" class="form" data-bind="with: model.statesController.state">
+                <div class="row">
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="stateId">state Id<span class="text-danger"> *</span></label>
+                        <input id="stateId" name="stateId" type="text" class="form-control" data-bind="value: stateId, disable: model.statesController.disabledId()"
+                               data-error=".errorState"
+                               minlength="3" maxlength="10" required>
+                        <span class="errorState text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        <label for="Name">Name<span class="text-danger"> *</span></label>
+                        <input id="Name" name="name" type="text" class="form-control" data-bind="value: name"
+                               data-error=".errorName"
+                               minlength="3" maxlength="10" required>
+                        <span class="errorName text-danger help-inline"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.statesController.update, visible: model.statesController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.statesController.save, visible: model.statesController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.statesController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+        $(document).ready(function () {
+
+           model.countriesController.initialize();
+            
+        });
+</script>

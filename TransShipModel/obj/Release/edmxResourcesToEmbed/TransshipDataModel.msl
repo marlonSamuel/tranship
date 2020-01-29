@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="transshipModelStoreContainer" CdmEntityContainer="transshipEntities">
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.countries)">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="ISO2" ColumnName="ISO2" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="LongCountryName" ColumnName="LongCountryName" />
+          <ScalarProperty Name="ISO3" ColumnName="ISO3" />
+          <ScalarProperty Name="NumCode" ColumnName="NumCode" />
+          <ScalarProperty Name="UNMemberState" ColumnName="UNMemberState" />
+          <ScalarProperty Name="CallingCode" ColumnName="CallingCode" />
+          <ScalarProperty Name="CCTLD" ColumnName="CCTLD" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="currencySymbol" ColumnName="currencySymbol" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="validate_state" ColumnName="validate_state" />
+          <ScalarProperty Name="mandatory_zipcode" ColumnName="mandatory_zipcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.customer_contacts)">
+        <MappingFragment StoreEntitySet="customer_contacts">
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.customers)">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="estimated_membership" ColumnName="estimated_membership" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="card_number" ColumnName="card_number" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="register_date" ColumnName="register_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="file_types">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.file_types)">
+        <MappingFragment StoreEntitySet="file_types">
+          <ScalarProperty Name="file_typeId" ColumnName="file_typeId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="measure_units">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.measure_units)">
+        <MappingFragment StoreEntitySet="measure_units">
+          <ScalarProperty Name="service_typeId" ColumnName="service_typeId" />
+          <ScalarProperty Name="measure_unitId" ColumnName="measure_unitId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="membership_history">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.membership_history)">
+        <MappingFragment StoreEntitySet="membership_history">
+          <ScalarProperty Name="number_shipments" ColumnName="number_shipments" />
+          <ScalarProperty Name="membership_HistoryId" ColumnName="membership_HistoryId" />
+          <ScalarProperty Name="membershipId" ColumnName="membershipId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="card_number" ColumnName="card_number" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="initial_date" ColumnName="initial_date" />
+          <ScalarProperty Name="final_date" ColumnName="final_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Memberships_levels">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.Memberships_levels)">
+        <MappingFragment StoreEntitySet="Memberships_levels">
+          <ScalarProperty Name="membershipId" ColumnName="membershipId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="max_number_shipments" ColumnName="max_number_shipments" />
+          <ScalarProperty Name="price_markup" ColumnName="price_markup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="password_revovery">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.password_revovery)">
+        <MappingFragment StoreEntitySet="password_revovery">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="random_code" ColumnName="random_code" />
+          <ScalarProperty Name="expiration" ColumnName="expiration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rates">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.rates)">
+        <MappingFragment StoreEntitySet="rates">
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="service_typeId" ColumnName="service_typeId" />
+          <ScalarProperty Name="measure_unitId" ColumnName="measure_unitId" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recurring_addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.recurring_addresses)">
+        <MappingFragment StoreEntitySet="recurring_addresses">
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="addressId" ColumnName="addressId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="consignee_name" ColumnName="consignee_name" />
+          <ScalarProperty Name="target_company" ColumnName="target_company" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service_types">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.service_types)">
+        <MappingFragment StoreEntitySet="service_types">
+          <ScalarProperty Name="service_typeId" ColumnName="service_typeId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="user_input" ColumnName="user_input" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipment_attachment">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.shipment_attachment)">
+        <MappingFragment StoreEntitySet="shipment_attachment">
+          <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+          <ScalarProperty Name="file_typeId" ColumnName="file_typeId" />
+          <ScalarProperty Name="shipment_attachmentId" ColumnName="shipment_attachmentId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipment_cost">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.shipment_cost)">
+        <MappingFragment StoreEntitySet="shipment_cost">
+          <ScalarProperty Name="vendor" ColumnName="vendor" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+          <ScalarProperty Name="service_typeId" ColumnName="service_typeId" />
+          <ScalarProperty Name="measure_unitId" ColumnName="measure_unitId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipment_notes">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.shipment_notes)">
+        <MappingFragment StoreEntitySet="shipment_notes">
+          <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+          <ScalarProperty Name="shipment_noteId" ColumnName="shipment_noteId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipment_services">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.shipment_services)">
+        <MappingFragment StoreEntitySet="shipment_services">
+          <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+          <ScalarProperty Name="service_typeId" ColumnName="service_typeId" />
+          <ScalarProperty Name="measure_unitId" ColumnName="measure_unitId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="estimated_unit_price" ColumnName="estimated_unit_price" />
+          <ScalarProperty Name="confirmed_unit_price" ColumnName="confirmed_unit_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipment_tracking">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.shipment_tracking)">
+        <MappingFragment StoreEntitySet="shipment_tracking">
+          <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+          <ScalarProperty Name="trackingId" ColumnName="trackingId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="comentaries" ColumnName="comentaries" />
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shipments">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.shipments)">
+        <MappingFragment StoreEntitySet="shipments">
+          <ScalarProperty Name="purcharse_order" ColumnName="purcharse_order" />
+          <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="service_typeId" ColumnName="service_typeId" />
+          <ScalarProperty Name="consignee_name" ColumnName="consignee_name" />
+          <ScalarProperty Name="target_company" ColumnName="target_company" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="shipping_terms" ColumnName="shipping_terms" />
+          <ScalarProperty Name="tnc_accepted" ColumnName="tnc_accepted" />
+          <ScalarProperty Name="shipment_date" ColumnName="shipment_date" />
+          <ScalarProperty Name="preferred_vendor" ColumnName="preferred_vendor" />
+          <ScalarProperty Name="estimated_delivery_date" ColumnName="estimated_delivery_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="current_tracking" ColumnName="current_tracking" />
+          <ScalarProperty Name="current_tracking_date" ColumnName="current_tracking_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="state">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.state)">
+        <MappingFragment StoreEntitySet="state">
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="stateId" ColumnName="stateId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.users)">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="confirmationKey" ColumnName="confirmationKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendor_contacts">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.vendor_contacts)">
+        <MappingFragment StoreEntitySet="vendor_contacts">
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vendors">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.vendors)">
+        <MappingFragment StoreEntitySet="vendors">
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(transshipModel.sysdiagrams)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers_view">
+      <EntityTypeMapping TypeName="transshipModel.Customers_view">
+        <MappingFragment StoreEntitySet="Customers_view">
+          <ScalarProperty Name="max_number_shipments" ColumnName="max_number_shipments" />
+          <ScalarProperty Name="number_shipments" ColumnName="number_shipments" />
+          <ScalarProperty Name="initial_date" ColumnName="initial_date" />
+          <ScalarProperty Name="final_date" ColumnName="final_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="membershipId" ColumnName="membershipId" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="customer_status" ColumnName="customer_status" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

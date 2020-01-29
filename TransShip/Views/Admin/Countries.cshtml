@@ -1,0 +1,277 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Countries";
+}
+@model IEnumerable<TransShipModel.DTO.CountryInformation>
+
+<div id="content" style="margin-top: 40px;">
+    <!-- *** BREADCRUMB *** -->
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>Admin</li>
+        </ul>
+    </div>
+    <!-- /BREADCRUMB -->
+    <!-- *** MENUS AND FILTERS *** -->
+    <div class="col-md-3">
+        <div class="panel panel-default sidebar-menu">
+            <div class="panel-heading">
+                <h3 class="panel-title">Administration</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked category-menu">
+                    <li>@Html.ActionLink("Users", "Users", "Admin")</li>
+                    <li>
+                        <a href="#">Catalogs </a>
+                        <ul>
+                            <li class="active">@Html.ActionLink("Countries", "Countries", "Admin")</li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="ServiceUnitMngmt">Service Unit Management</a></li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="AttachmentType">Attachment Type</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Approve Register", "AproveRegister", "Admin")</li>                    
+                    <li><a asp-area="" asp-controller="Admin" asp-action="MembershipPayments">Membership Payments</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Vendors">Vendors</a></li>
+                    <li>
+                        <a href="#">Shipment </a>
+                        <ul>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="PendingQuote">Pending Quote</a></li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Submit">Submit</a></li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Track">Track</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /MENUS AND FILTERS -->
+</div>
+
+<div class="col-md-9" id="users" ng-app="ng-users">
+    <div class="box">
+        <h1>Countries</h1>
+        <hr />
+        <div style="float:right">
+            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addcountry"><i class="fa fa-plus-square"></i></button>
+        </div>
+        <br>
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>                        
+                        <th>Country Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>                            
+                            <td>@x.Name</td>                            
+                            <td>                                
+                                @{
+                                    ViewContext.Writer.Write("<button type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"modal\" onclick=\"TransShip.Scripts.jsGetCountryInformation(" + x.Id + ")\"><i class=\"fa fa-pencil\"></i></button>");
+                                }
+                                @{
+                                    ViewContext.Writer.Write("<button type=\"button\" class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" onclick=\"TransShip.Scripts.jsDeleteCountryConfirm(" + x.Id + ")\"><i class=\"fa fa-trash-o\"></i></button>");
+                                }
+                            </td>
+                        </tr>
+                     }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="editcountry" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Country</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="iso2">ISO2:</label>
+                        <input type="text" data-bind="value: model.newcountry.ISO2" class="form-control" id="iso2" name="iso2">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="countryname">Country Name:</label>
+                        <input type="text" data-bind="value: model.newcountry.countryname" class="form-control" id="countryname" name="countryname">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="longcountryname">Long Country Name:</label>
+                        <input type="text" data-bind="value: model.newcountry.longcountryname" class="form-control" id="longcountryname" name="longcountryname">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="iso3">ISO3:</label>
+                        <input type="text" data-bind="value: model.newcountry.ISO3" class="form-control" id="iso3" name="iso3">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="numcode">Num Code:</label>
+                        <input type="text" data-bind="value: model.newcountry.NumCode" class="form-control" id="numcode" name="numcode">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="unmemberstate">UN Member:</label>
+                        <select class="form-control" id="unmemberstate" data-bind="value: model.newcountry.UNMemberState">
+                            <option value="Yes">Yes</option>
+                            <option value="Not">Not</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="callingcode">Calling Code:</label>
+                        <input type="text" data-bind="value: model.newcountry.CallingCode" class="form-control" id="callingcode" name="callingcode">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="cctld">CCTLD:</label>
+                        <input type="text" data-bind="value: model.newcountry.CCTLD" class="form-control" id="cctld" name="cctld">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info" data-bind="click: changeCountry"><i class="fa fa-pencil"></i> Edit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-power-off"></i> Cancel</button>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="alert alert-success" data-bind="visible: model.changecountryresult() == 'success'">
+                    <strong>Success!</strong> Country record has been updated.
+                </div>
+                <div class="alert alert-danger" data-bind="visible: model.changecountryresult() == 'error'">
+                    <strong>Danger!</strong> An error occurred, please check submitted information.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="addcountry" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Country</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="iso2">ISO2:</label>
+                        <input type="text" data-bind="value: model.newcountry.ISO2" class="form-control" id="iso2" name="iso2">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="countryname">Country Name:</label>
+                        <input type="text" data-bind="value: model.newcountry.countryname" class="form-control" id="countryname" name="countryname">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="longcountryname">Long Country Name:</label>
+                        <input type="text" data-bind="value: model.newcountry.longcountryname" class="form-control" id="longcountryname" name="longcountryname">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="iso3">ISO3:</label>
+                        <input type="text" data-bind="value: model.newcountry.ISO3" class="form-control" id="iso3" name="iso3">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="numcode">Num Code:</label>
+                        <input type="text" data-bind="value: model.newcountry.NumCode" class="form-control" id="numcode" name="numcode">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="unmemberstate">UN Member:</label>
+                        <select class="form-control" id="unmemberstate" data-bind="value: model.newcountry.UNMemberState">
+                            <option value="Yes">Yes</option>
+                            <option value="Not">Not</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="callingcode">Calling Code:</label>
+                        <input type="text" data-bind="value: model.newcountry.CallingCode" class="form-control" id="callingcode" name="callingcode">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="cctld">CCTLD:</label>
+                        <input type="text" data-bind="value: model.newcountry.CCTLD" class="form-control" id="cctld" name="cctld">
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-success" data-bind="click: addCountry"><i class="fa fa-pencil"></i> Edit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-trash-o"></i> Cancel</button>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="alert alert-success" data-bind="visible: model.newcountryresult() == 'success'">
+                    <strong>Success!</strong> A new country has been added.
+                </div>
+                <div class="alert alert-danger" data-bind="visible: model.newcountryresult() == 'error'">
+                    <strong>Danger!</strong> An error occurred, please check submitted information.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="confirmDeleteCountry" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Country?</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this country record?</p>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-danger" data-bind="click: deleteCountry"><i class="fa fa-trash-o"></i> Ok</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-power-off"></i> Cancel</button>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="alert alert-success" data-bind="visible: model.erascountryresult() == 'success'">
+                    <strong>Success!</strong> Country record has been deleted.
+                </div>
+                <div class="alert alert-danger" data-bind="visible: model.erascountryresult() == 'error'">
+                    <strong>Danger!</strong> An error occurred, please check submitted information.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

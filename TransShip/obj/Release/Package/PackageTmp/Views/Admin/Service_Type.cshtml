@@ -1,0 +1,148 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Service_Type";
+}
+
+
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <h1>Services Unit Management</h1>
+        <hr />
+
+        <div class="table-responsive" data-bind="visible: model.servicesController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success mybtn" data-bind="click: model.servicesController.showNewService"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="servicesGrid" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Input by Customer</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.servicesController.services, 
+                                    options: dataTableOptions
+                                  }">
+                    <tr>
+                        <td data-bind="text: descripcion"></td>
+                        <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                        <td><span data-bind="text: (user_input === 'Y' ? 'Yes' : 'No')"></span></td>
+                        <td>
+                            <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.servicesController.editService"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.servicesController.removeService"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-bind="visible: (model.servicesController.editMode() || model.servicesController.insertMode())">
+
+            <form name="ServiceEdit" id="ServiceEdit" class="form" data-bind="with: model.servicesController.service">
+                <div class="row">
+                    <div class="form-group col-sm-3 col-md-3">
+                        <label for="descripcion">Description<span class="text-danger"> *</span></label>
+                        <input id="descripcion" type="text" class="form-control" data-bind="value: descripcion  "
+                               data-error=".errorDescription"
+                               minlength="3" maxlength="50" required>
+                        <span class="errorDescription text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="status">Status<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="status" data-bind="options: model.servicesController.statusOptions, optionsText: 'name', optionsValue: 'value', value: status"></select>
+                    </div>
+                    <div class="form-group col-sm-3 col-md-3">
+                        <label for="status">Input by Customer<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="user_imput" data-bind="options: model.servicesController.userInputOptions, optionsText: 'name', optionsValue: 'value', value: user_input"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.servicesController.update, visible: model.servicesController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.servicesController.save, visible: model.servicesController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.servicesController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="content" data-bind="visible: model.measureController.viewUnit()">
+    <div class="box" id="MeasueUnit">
+        <h3>Unit</h3>
+        <hr />
+            <div class="table-responsive" data-bind="visible: model.measureController.gridMode()">
+                <div class="pull-right">
+                    <a href="#" class="btn btn-success mybtn" data-bind="click: model.measureController.showNewMeasure"><i class="fa fa-plus-circle"></i> New</a>
+                </div>
+
+                <table id="measuresGrid" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="dataTablesForEach : {
+                                    data: model.measureController.measures, 
+                                    options: dataTableOptions
+                                  }">
+                        <tr>
+                            <td data-bind="text: description"></td>
+                            <td><span class="label" data-bind="text: (status === 'A' ? 'Active' : 'Inactive'), css: (status === 'A' ? 'label-info' : 'label-warning')"></span></td>
+                            <td>
+                                <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.measureController.editMeasure"><i class="fa fa-pencil"></i></a>
+                                <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.measureController.removeMeasure"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+             </div>
+        <div data-bind="visible: (model.measureController.editMode() || model.measureController.insertMode())">
+
+            <form name="MeasureEdit" id="MeasureEdit" class="form" data-bind="with: model.measureController.measure">
+                <div class="row">
+                    <div class="form-group col-sm-3 col-md-3">
+                        <label for="description">Description<span class="text-danger"> *</span></label>
+                        <input id="description" name="description" type="text" class="form-control" data-bind="value: description"
+                               data-error=".errorDescription"
+                               minlength="3" maxlength="50" required>
+                        <span class="errorDescription text-danger help-inline"></span>
+                    </div>
+                    <div class="form-group col-sm-2 col-md-2">
+                        <label for="status">Status<span class="text-danger"> *</span></label>
+                        <select class="form-control" id="status" data-bind="options: model.measureController.statusOptions, optionsText: 'name', optionsValue: 'value', value: status"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.measureController.update, visible: model.measureController.editMode"><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.measureController.save, visible: model.measureController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.measureController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+            </div>
+            
+        </div>
+
+
+<script>
+        $(document).ready(function () {
+
+          model.servicesController.initialize();
+        });
+</script>
+
+
+
+

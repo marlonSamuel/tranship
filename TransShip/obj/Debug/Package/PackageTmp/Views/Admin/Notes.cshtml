@@ -1,0 +1,158 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Notes";
+}
+
+<div class="content">
+    <div class="box" id="countriesBox">
+        <div class="pull-right">
+            <a class="btn btn-danger btn-sm" href="@Url.Action("Shipments","Admin")"><i class="fa fa-undo"> Return</i></a>
+        </div>
+        <h1>Add Notes</h1>
+        <hr />
+        <div class="row" data-bind="with: model.notesController.customer">
+            <div class="col-sm-1"><label>Company Name: </label></div>
+            <div class="col-sm-6"><h6 data-bind="text: company_name"></h6></div>
+            <div class="col-sm-1"><label>Shipment Number:</label></div>
+            <div class="col-sm-1"><h4 class="text-primary" data-bind="text: model.notesController.shipment.shipmentId"></h4></div>
+            <div class="col-sm-2">
+                <img style="width:200px; height:100px;" data-bind="attr:{src: '../Logos/'+customerId()+'/'+logo()}" />
+            </div>
+        </div>
+        <div class="container">
+            <h2>Shipment Information</h2>
+        </div>
+
+     <div class="content">
+         <div class="table-responsive">
+             <table id="shipGrid" class="table table-hover table-bordered">
+                 <thead>
+                     <tr>
+                         <th>Name Consignee</th>
+                         <th>Receiving Company</th>
+                         <th>Vendor</th>
+                         <th>Date Shipments</th>
+                         <th>Estimated Date</th>
+                         <th>Total</th>
+                         <th>Status</th>
+                         <th>Last Track</th>
+                     </tr>
+                 </thead>
+                 <tbody data-bind="with: model.notesController.shipment">
+                     <tr>
+                         <td data-bind="text: consignee_name"></td>
+                         <td data-bind="text: target_company"></td>
+                         <td data-bind="text: model.notesController.vendorName"></td>
+                         <td data-bind="text: (moment(shipment_date()).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(shipment_date()).format('MM/DD/YYYY'))"></td>
+                         <td data-bind="text: (moment(estimated_delivery_date()).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(estimated_delivery_date()).format('MM/DD/YYYY'))"></td>
+                         <td data-bind="text: (typeof model.approveController.shipCost.total() === 'number' ? model.approveController.shipCost.total().toFixed(2) : 0)"></td>
+                         <td><span class="label label-primary" data-bind="text: (status() === 'N' ? 'Saved' : (status() === 'P' ? 'Pending Quote' : (status() === 'Q' ? 'Quoted' : (status() === 'A' ? 'Approved' : (status() === 'R' ? 'Rejected' : (status() === 'C' ? 'Cancelled' : 'Delivery' ))))))"></span></td>
+                         <td data-bind="text: (moment(current_tracking_date()).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(current_tracking_date()).format('MM/DD/YYYY'))"></td>
+                     </tr>
+                 </tbody>
+             </table>
+         </div>
+     </div>
+       
+        <hr style="height:2px; border-width:2px;" color="#585858" />
+
+        <div class="table-responsive" data-bind="visible: model.notesController.gridMode()">
+            <div class="pull-right">
+                <a href="#" class="btn btn-success btn-sm" data-bind="click: model.notesController.showNewNote"><i class="fa fa-plus-circle"></i> New</a>
+            </div>
+            <table id="notesGrid" class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Note</th>
+                        <th>status</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="dataTablesForEach : {
+                                    data: model.notesController.notes, 
+                                    options: { 
+                                            deferRender: true,
+                                            paging: true,
+                                            searching: true,
+                                            pageLength: 10,
+                                            responsive: true,
+                                            bDestroy: true,
+                                            order: [[0, 'desc']],
+                                            dom: dataTableDom,
+                                        }
+                                  }">
+                    <tr>
+                        <td data-bind="text: (moment(creation_date).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(creation_date).format('MM/DD/YYYY'))" width="12%"></td>
+                        <td data-bind="text: username" width="23%"></td>
+                        <td class="ellipsis" data-bind="text: note" width="300px"></td>
+                        <td><span class="label" data-bind="text: (status === 'R' ? 'Read' : 'Unread'), css: (status === 'U' ? 'label-info' : 'label-danger')"></span></td>
+                        <td>
+                            <a href="#" class="btn btn-primary btn-xs" data-bind="click: model.notesController.readNote"><i class="fa fa-eye-slash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div data-bind="visible: (model.notesController.insertMode())">
+
+            <form name="notesEdit" id="notesEdit" class="form" data-bind="with: model.notesController.shipnote">
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-12">
+                        <label for="note">Note</label>
+                        <textarea rows="4" id="note" name="note" type="text" class="form-control" data-bind="value: note"
+                               data-error=".errorNote"
+                               minlength="3" maxlength="4000" required></textarea>
+                        <span class="errorNote text-danger help-inline"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="text-center">
+                        <button type="button" class="btn btn-info mybtn" data-bind="click:  model.notesController.save, visible: model.notesController.insertMode "><i class="fa fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-danger mybtn" data-bind="click:  model.notesController.cancel"><i class="fa fa-undo"></i> Cancel</button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="content" data-bind="visible: (model.notesController.viewNote())">
+            <div class="box" data-bind="with: model.notesController.shipnote">
+                <div>
+                    <label>User:</label>
+                    <span class="text-info" data-bind="text:username"></span>
+                </div>
+                <div>
+                    <label>creation date:</label>
+                    <span class="text-info" data-bind="text: (moment(creation_date()).format('MM/DD/YYYY') === 'Invalid date' ? '' : moment(creation_date()).format('MM/DD/YYYY'))"></span>
+                </div>
+                <div>
+                    <label>note:</label><br />
+                    <span class="text-info" data-bind="text:note"></span>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-danger" data-bind="click:  model.notesController.cancel"><i class="fa fa-undo"></i> Return</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        $(document).ready(function () {
+
+            model.notesController.initialize(@ViewData["shipmentId"]);
+            
+        });
+</script>
+
+
+
+
+
+

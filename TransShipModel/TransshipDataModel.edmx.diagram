@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f224c85415014d319427f2c4c35cdbd1" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="transshipModel.countries" Width="1.5" PointX="0.75" PointY="19.125" />
+        <EntityTypeShape EntityType="transshipModel.customer_contacts" Width="1.5" PointX="8.25" PointY="25.375" />
+        <EntityTypeShape EntityType="transshipModel.customers" Width="1.5" PointX="6" PointY="18.625" />
+        <EntityTypeShape EntityType="transshipModel.file_types" Width="1.5" PointX="13.5" PointY="20.125" />
+        <EntityTypeShape EntityType="transshipModel.measure_units" Width="1.5" PointX="10.5" PointY="16.125" />
+        <EntityTypeShape EntityType="transshipModel.membership_history" Width="1.5" PointX="11.25" PointY="20.125" />
+        <EntityTypeShape EntityType="transshipModel.Memberships_levels" Width="1.5" PointX="3.75" PointY="15.75" />
+        <EntityTypeShape EntityType="transshipModel.password_revovery" Width="1.5" PointX="10.5" PointY="47.5" />
+        <EntityTypeShape EntityType="transshipModel.rates" Width="1.5" PointX="3" PointY="19.625" />
+        <EntityTypeShape EntityType="transshipModel.recurring_addresses" Width="1.5" PointX="8.25" PointY="19.25" />
+        <EntityTypeShape EntityType="transshipModel.service_types" Width="1.5" PointX="8.25" PointY="33.375" />
+        <EntityTypeShape EntityType="transshipModel.shipment_attachment" Width="1.5" PointX="15.75" PointY="26.625" />
+        <EntityTypeShape EntityType="transshipModel.shipment_cost" Width="1.5" PointX="12.75" PointY="23.25" />
+        <EntityTypeShape EntityType="transshipModel.shipment_notes" Width="1.5" PointX="12.75" PointY="30.75" />
+        <EntityTypeShape EntityType="transshipModel.shipment_services" Width="1.5" PointX="15.75" PointY="23.125" />
+        <EntityTypeShape EntityType="transshipModel.shipment_tracking" Width="1.5" PointX="12.75" PointY="26.75" />
+        <EntityTypeShape EntityType="transshipModel.shipments" Width="1.5" PointX="10.5" PointY="23.875" />
+        <EntityTypeShape EntityType="transshipModel.state" Width="1.5" PointX="3" PointY="23.625" />
+        <EntityTypeShape EntityType="transshipModel.users" Width="1.5" PointX="8.25" PointY="28.5" />
+        <EntityTypeShape EntityType="transshipModel.vendor_contacts" Width="4.625" PointX="2.875" PointY="10" />
+        <EntityTypeShape EntityType="transshipModel.vendors" Width="1.5" PointX="0.75" PointY="14.375" />
+        <AssociationConnector Association="transshipModel.Refcountries22" />
+        <AssociationConnector Association="transshipModel.Refcountries23" />
+        <AssociationConnector Association="transshipModel.Refcountries24" />
+        <AssociationConnector Association="transshipModel.Refcountries27" />
+        <AssociationConnector Association="transshipModel.Refcountries30" />
+        <AssociationConnector Association="transshipModel.Refcustomers2" />
+        <AssociationConnector Association="transshipModel.Refcustomers1" />
+        <AssociationConnector Association="transshipModel.Refcustomers28" />
+        <AssociationConnector Association="transshipModel.Refcustomers5" />
+        <AssociationConnector Association="transshipModel.Refcustomers6" />
+        <AssociationConnector Association="transshipModel.RefMemberships_levels3" />
+        <AssociationConnector Association="transshipModel.Reffile_types14" />
+        <AssociationConnector Association="transshipModel.Refmeasure_units21" />
+        <AssociationConnector Association="transshipModel.Refmeasure_units31" />
+        <AssociationConnector Association="transshipModel.Refmeasure_units9" />
+        <AssociationConnector Association="transshipModel.Refservice_types10" />
+        <AssociationConnector Association="transshipModel.RefMemberships_levels4" />
+        <AssociationConnector Association="transshipModel.Refusers33" />
+        <AssociationConnector Association="transshipModel.Refvendors25" />
+        <AssociationConnector Association="transshipModel.Refservice_types29" />
+        <AssociationConnector Association="transshipModel.Refshipments13" />
+        <AssociationConnector Association="transshipModel.Refusers12" />
+        <AssociationConnector Association="transshipModel.Refshipments32" />
+        <AssociationConnector Association="transshipModel.Refshipments18" />
+        <AssociationConnector Association="transshipModel.Refusers17" />
+        <AssociationConnector Association="transshipModel.Refshipments7" />
+        <AssociationConnector Association="transshipModel.Refshipments15" />
+        <AssociationConnector Association="transshipModel.Refusers16" />
+        <AssociationConnector Association="transshipModel.Refusers11" />
+        <AssociationConnector Association="transshipModel.Refvendors26" />
+        <EntityTypeShape EntityType="transshipModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="transshipModel.FK_shipments_vendors" />
+        <EntityTypeShape EntityType="transshipModel.Customers_view" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

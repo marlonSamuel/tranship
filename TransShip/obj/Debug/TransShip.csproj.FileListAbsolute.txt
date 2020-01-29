@@ -1,0 +1,304 @@
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\ApplicationInsights.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\csc.exe
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\csc.exe.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\csc.rsp
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\csi.exe
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\csi.exe.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\csi.rsp
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.AppContext.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Console.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.IO.Compression.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.IO.Pipes.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.Claims.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Threading.Thread.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.ValueTuple.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Xml.XPath.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\vbc.exe
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\vbc.exe.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\vbc.rsp
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\VBCSCompiler.exe
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.dll.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Antlr3.Runtime.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.Web.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Newtonsoft.Json.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Helpers.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Mvc.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Optimization.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Razor.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.WebPages.Deployment.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.WebPages.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.WebPages.Razor.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\WebGrease.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Helpers.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Mvc.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Optimization.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Razor.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.WebPages.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.WebPages.Deployment.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.WebPages.Razor.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Antlr3.Runtime.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Newtonsoft.Json.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Microsoft.AI.Web.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.Helpers.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.Mvc.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.Optimization.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.Razor.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.WebPages.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\obj\Debug\TransShip.csprojResolveAssemblyReference.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\obj\Debug\TransShip.csproj.CoreCompileInputs.cache
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\obj\Debug\TransShip.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\obj\Debug\TransShip.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Net.Http.Formatting.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Http.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Http.WebHost.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Net.Http.Formatting.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Http.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\System.Web.Http.WebHost.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Net.Http.Formatting.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.Http.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\es\System.Web.Http.WebHost.resources.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Ninject.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\NLog.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\Ninject.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\NLog.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.LogBook.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShipModel.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\EntityFramework.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.LogBook.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShipModel.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShipModel.dll.config
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\EntityFramework.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\EntityFramework.SqlServer.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\EntityFramework.SqlServer.xml
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.Objects.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.Objects.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.EMailHandler.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.Security.dll
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.EMailHandler.pdb
+C:\Users\mauro\Documents\Visual Studio 2017\Villate\TransShip\bin\TransShip.Security.pdb
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.IO.Compression.dll
+C:\TransShip\transship\TransShip\bin\roslyn\VBCSCompiler.exe
+C:\TransShip\transship\TransShip\bin\roslyn\csc.exe
+C:\TransShip\transship\TransShip\bin\roslyn\csc.exe.config
+C:\TransShip\transship\TransShip\bin\roslyn\csc.rsp
+C:\TransShip\transship\TransShip\bin\roslyn\csi.exe
+C:\TransShip\transship\TransShip\bin\roslyn\csi.exe.config
+C:\TransShip\transship\TransShip\bin\roslyn\csi.rsp
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\TransShip\transship\TransShip\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.AppContext.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Collections.Immutable.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Console.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Diagnostics.Process.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.IO.FileSystem.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.IO.Pipes.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Reflection.Metadata.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.AccessControl.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.Claims.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Security.Principal.Windows.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Threading.Thread.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.ValueTuple.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Xml.XmlDocument.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Xml.XPath.dll
+C:\TransShip\transship\TransShip\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\TransShip\transship\TransShip\bin\roslyn\vbc.exe
+C:\TransShip\transship\TransShip\bin\roslyn\vbc.exe.config
+C:\TransShip\transship\TransShip\bin\roslyn\vbc.rsp
+C:\TransShip\transship\TransShip\bin\roslyn\VBCSCompiler.exe.config
+C:\TransShip\transship\TransShip\bin\ApplicationInsights.config
+C:\TransShip\transship\TransShip\bin\TransShip.dll.config
+C:\TransShip\transship\TransShip\bin\TransShip.dll
+C:\TransShip\transship\TransShip\bin\TransShip.pdb
+C:\TransShip\transship\TransShip\bin\Antlr3.Runtime.dll
+C:\TransShip\transship\TransShip\bin\EntityFramework.dll
+C:\TransShip\transship\TransShip\bin\EntityFramework.SqlServer.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.Agent.Intercept.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.DependencyCollector.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.Web.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.WindowsServer.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.ApplicationInsights.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.Data.Edm.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.Data.OData.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.Data.Services.Client.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.Web.Infrastructure.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.WindowsAzure.Diagnostics.dll
+C:\TransShip\transship\TransShip\bin\Microsoft.WindowsAzure.Storage.dll
+C:\TransShip\transship\TransShip\bin\Newtonsoft.Json.dll
+C:\TransShip\transship\TransShip\bin\Ninject.dll
+C:\TransShip\transship\TransShip\bin\NLog.dll
+C:\TransShip\transship\TransShip\bin\System.Net.Http.Formatting.dll
+C:\TransShip\transship\TransShip\bin\System.Spatial.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Cors.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Helpers.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Http.Cors.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Http.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Http.WebHost.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Mvc.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Optimization.dll
+C:\TransShip\transship\TransShip\bin\System.Web.Razor.dll
+C:\TransShip\transship\TransShip\bin\System.Web.WebPages.Deployment.dll
+C:\TransShip\transship\TransShip\bin\System.Web.WebPages.dll
+C:\TransShip\transship\TransShip\bin\System.Web.WebPages.Razor.dll
+C:\TransShip\transship\TransShip\bin\TransShip.EMailHandler.dll
+C:\TransShip\transship\TransShip\bin\TransShip.LogBook.dll
+C:\TransShip\transship\TransShip\bin\TransShipBO.dll
+C:\TransShip\transship\TransShip\bin\TransShipModel.dll
+C:\TransShip\transship\TransShip\bin\WebGrease.dll
+C:\TransShip\transship\TransShip\bin\TransShip.Security.dll
+C:\TransShip\transship\TransShip\bin\MonAgentListener.dll
+C:\TransShip\transship\TransShip\bin\TransShip.EMailHandler.pdb
+C:\TransShip\transship\TransShip\bin\TransShip.LogBook.pdb
+C:\TransShip\transship\TransShip\bin\TransShipBO.pdb
+C:\TransShip\transship\TransShip\bin\TransShipModel.pdb
+C:\TransShip\transship\TransShip\bin\TransShipModel.dll.config
+C:\TransShip\transship\TransShip\bin\EntityFramework.xml
+C:\TransShip\transship\TransShip\bin\EntityFramework.SqlServer.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.Data.Edm.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.Data.OData.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.Data.Services.Client.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\TransShip\transship\TransShip\bin\Microsoft.WindowsAzure.Storage.xml
+C:\TransShip\transship\TransShip\bin\Newtonsoft.Json.xml
+C:\TransShip\transship\TransShip\bin\Ninject.xml
+C:\TransShip\transship\TransShip\bin\NLog.xml
+C:\TransShip\transship\TransShip\bin\System.Net.Http.Formatting.xml
+C:\TransShip\transship\TransShip\bin\System.Spatial.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Http.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Http.Cors.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Http.WebHost.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Helpers.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Mvc.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Optimization.xml
+C:\TransShip\transship\TransShip\bin\System.Web.Razor.xml
+C:\TransShip\transship\TransShip\bin\System.Web.WebPages.xml
+C:\TransShip\transship\TransShip\bin\System.Web.WebPages.Deployment.xml
+C:\TransShip\transship\TransShip\bin\System.Web.WebPages.Razor.xml
+C:\TransShip\transship\TransShip\bin\Antlr3.Runtime.pdb
+C:\TransShip\transship\TransShip\bin\Microsoft.ApplicationInsights.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.DependencyCollector.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.WindowsServer.xml
+C:\TransShip\transship\TransShip\bin\Microsoft.AI.Web.xml
+C:\TransShip\transship\TransShip\bin\TransShip.Security.pdb
+C:\TransShip\transship\TransShip\bin\de\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\es\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\it\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\TransShip\transship\TransShip\bin\de\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\es\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\fr\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\it\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\ja\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\ko\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\ru\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\TransShip\transship\TransShip\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Net.Http.Formatting.resources.dll
+C:\TransShip\transship\TransShip\bin\de\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\fr\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\it\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\ja\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\ko\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\ru\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hans\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\zh-Hant\System.Spatial.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.Http.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.Http.WebHost.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.Helpers.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.Mvc.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.Optimization.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.Razor.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.WebPages.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\TransShip\transship\TransShip\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\TransShip\transship\TransShip\obj\Debug\TransShip.csprojResolveAssemblyReference.cache
+C:\TransShip\transship\TransShip\obj\Debug\TransShip.csproj.CoreCompileInputs.cache
+C:\TransShip\transship\TransShip\obj\Debug\TransShip.dll
+C:\TransShip\transship\TransShip\obj\Debug\TransShip.pdb
